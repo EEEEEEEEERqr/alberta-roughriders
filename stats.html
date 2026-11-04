@@ -1,1 +1,190 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stats | Alberta Roughriders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#000;--border:#222;--text:#fff;--muted:#888;--pink:#ff4d9e;--pink-soft:#ff7eb9;--pink-glow:rgba(255,77,158,.35)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+    header{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo{display:flex;align-items:center;gap:.75rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem}
+    .logo img{height:48px;filter:drop-shadow(0 0 8px var(--pink-glow))}
+    .logo span{font-family:'Great Vibes',cursive;font-size:1.45rem;color:var(--pink)}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{font-size:.9rem;color:var(--muted)}
+    .nav-links a:hover,.nav-links a.active{color:var(--pink-soft)}
+    .btn{display:inline-flex;padding:.7rem 1.35rem;border-radius:4px;font-weight:700;font-size:.9rem;font-family:'Space Grotesk',sans-serif;border:1px solid #333;background:transparent;color:#fff;cursor:pointer}
+    .btn:hover{border-color:var(--pink);color:var(--pink-soft)}
+    .page-hero{padding:3.5rem 0 2.5rem;text-align:center;border-bottom:1px solid var(--border)}
+    .page-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,2.8rem);font-weight:700}
+    .signature{font-family:'Great Vibes',cursive;color:var(--pink)}
+    .page-hero p{color:var(--muted)}
+    section{padding:3.5rem 0}
+    .section-label{font-size:.75rem;font-weight:600;color:var(--pink-soft);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.6rem}
+    .section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,3.5vw,2rem);font-weight:700;margin-bottom:.5rem}
+    .summary-grid,.leaders-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem}
+    .summary-card,.leader-card{background:var(--bg);padding:1.3rem 1rem;text-align:center}
+    .summary-num,.leader-stat{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--pink)}
+    .summary-label,.leader-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;margin-top:.25rem}
+    .leader-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem}
+    .tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+    .tab{padding:.55rem 1.1rem;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.85rem;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;border-radius:3px}
+    .tab.active{background:rgba(255,77,158,.12);border-color:var(--pink);color:var(--pink-soft)}
+    .tab-panel{display:none}.tab-panel.active{display:block}
+    .table-wrap{overflow-x:auto;border:1px solid var(--border)}
+    table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:600px}
+    thead{background:#0d0d0d;border-bottom:1px solid var(--border)}
+    th{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.75rem;text-transform:uppercase;color:var(--muted);padding:.85rem .7rem;text-align:left}
+    th.num,td.num{text-align:center}
+    td{padding:.8rem .7rem;border-bottom:1px solid #1a1a1a;color:#ddd}
+    tr:hover td{background:rgba(255,77,158,.04)}
+    .player-name{font-weight:600;color:#fff}
+    .pos{display:inline-block;font-size:.7rem;font-weight:600;color:var(--pink-soft);border:1px solid rgba(255,77,158,.35);padding:.08rem .35rem;border-radius:2px;margin-left:.35rem}
+    .highlight{color:var(--pink);font-weight:600}
+    .note{margin-top:1.2rem;font-size:.82rem;color:var(--muted);padding:.9rem 1rem;border:1px solid var(--border);background:#0a0a0a}
+    .note a{color:var(--pink-soft);text-decoration:underline}
+    footer{border-top:1px solid var(--border);padding:2.5rem 0 1.6rem;font-size:.85rem;color:var(--muted);margin-top:2rem}
+    .footer-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;margin-bottom:.25rem}
+    .footer-brand span{color:var(--pink)}
+    @media(max-width:768px){.nav-links{display:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <img src="logo.svg" alt="Alberta Roughriders">
+        Alberta<span>Roughriders</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="stats.html" class="active">Stats</a></li>
+      </ul>
+      <a href="index.html" class="btn">Back Home</a>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label">Player & Team Numbers</div>
+      <h1>Alberta <span class="signature">Roughriders</span></h1>
+      <p>Vegas Spring Fling · MHT Las Vegas · GameSheet stats</p>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="section-label">Team Snapshot</div>
+      <h2 class="section-title">Season summary</h2>
+      <div class="summary-grid">
+        <div class="summary-card"><div class="summary-num">4</div><div class="summary-label">GP</div></div>
+        <div class="summary-card"><div class="summary-num">25.0%</div><div class="summary-label">Power Play</div></div>
+        <div class="summary-card"><div class="summary-num">92.3%</div><div class="summary-label">Penalty Kill</div></div>
+        <div class="summary-card"><div class="summary-num">-1</div><div class="summary-label">Goal Diff</div></div>
+        <div class="summary-card"><div class="summary-num">W1</div><div class="summary-label">Streak</div></div>
+      </div>
+      <div class="section-label">Leaders</div>
+      <div class="leaders-grid">
+        <div class="leader-card"><div class="leader-label">Points</div><div class="leader-name">#13 Caleb Burton</div><div class="leader-stat">7 PTS</div></div>
+        <div class="leader-card"><div class="leader-label">Goals</div><div class="leader-name">#13 Caleb Burton</div><div class="leader-stat">5 G</div></div>
+        <div class="leader-card"><div class="leader-label">Assists</div><div class="leader-name">#13 Caleb Burton</div><div class="leader-stat">2 A</div></div>
+        <div class="leader-card"><div class="leader-label">Most Penalized</div><div class="leader-name">#15 Jackson McNabb</div><div class="leader-stat">27 PIM</div></div>
+      </div>
+      <div class="tabs">
+        <button class="tab active" data-tab="skaters">Skaters</button>
+        <button class="tab" data-tab="goalies">Goalies</button>
+        <button class="tab" data-tab="roster">Full Roster</button>
+      </div>
+      <div id="skaters" class="tab-panel active">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Player</th><th class="num">GP</th><th class="num">G</th><th class="num">A</th><th class="num">PTS</th><th class="num">PIM</th><th class="num">PPG</th></tr></thead>
+            <tbody>
+              <tr><td>13</td><td><span class="player-name">Caleb Burton</span><span class="pos">F</span></td><td class="num">4</td><td class="num highlight">5</td><td class="num">2</td><td class="num highlight">7</td><td class="num">0</td><td class="num">1.75</td></tr>
+              <tr><td>91</td><td><span class="player-name">Nixon Allred</span><span class="pos">F</span></td><td class="num">4</td><td class="num">1</td><td class="num">2</td><td class="num">3</td><td class="num">0</td><td class="num">0.75</td></tr>
+              <tr><td>97</td><td><span class="player-name">Mason Manning</span><span class="pos">F</span></td><td class="num">4</td><td class="num">1</td><td class="num">1</td><td class="num">2</td><td class="num">2</td><td class="num">0.50</td></tr>
+              <tr><td>15</td><td><span class="player-name">Jackson McNabb</span><span class="pos">F</span></td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">2</td><td class="num highlight">27</td><td class="num">0.67</td></tr>
+              <tr><td>18</td><td><span class="player-name">Bentley Mundell</span><span class="pos">F</span></td><td class="num">4</td><td class="num">0</td><td class="num">2</td><td class="num">2</td><td class="num">6</td><td class="num">0.50</td></tr>
+              <tr><td>8</td><td><span class="player-name">Laken Cesar</span><span class="pos">D</span></td><td class="num">4</td><td class="num">0</td><td class="num">1</td><td class="num">1</td><td class="num">18</td><td class="num">0.25</td></tr>
+              <tr><td>67</td><td><span class="player-name">Kaiden Kado</span><span class="pos">D</span></td><td class="num">4</td><td class="num">0</td><td class="num">1</td><td class="num">1</td><td class="num">4</td><td class="num">0.25</td></tr>
+              <tr><td>98</td><td><span class="player-name">Owen Mullen</span><span class="pos">F</span></td><td class="num">4</td><td class="num">1</td><td class="num">0</td><td class="num">1</td><td class="num">14</td><td class="num">0.25</td></tr>
+              <tr><td>87</td><td><span class="player-name">Kaden Roberts</span><span class="pos">F</span></td><td class="num">4</td><td class="num">1</td><td class="num">0</td><td class="num">1</td><td class="num">0</td><td class="num">0.25</td></tr>
+              <tr><td>92</td><td><span class="player-name">Gaven Blasco</span><span class="pos">D</span></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">6</td><td class="num">0.00</td></tr>
+              <tr><td>12</td><td><span class="player-name">Evan Cronk</span><span class="pos">F</span></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0.00</td></tr>
+              <tr><td>3</td><td><span class="player-name">Easton Fowler</span><span class="pos">F</span></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0.00</td></tr>
+              <tr><td>71</td><td><span class="player-name">Logan Hooper</span><span class="pos">D</span></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0.00</td></tr>
+              <tr><td>66</td><td><span class="player-name">Aiden Pierzchala</span><span class="pos">D</span></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">12</td><td class="num">0.00</td></tr>
+              <tr><td>88</td><td><span class="player-name">Dallas Whitten</span><span class="pos">D</span></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">2</td><td class="num">0.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="goalies" class="tab-panel">
+        <div class="leaders-grid" style="margin-bottom:1.5rem">
+          <div class="leader-card"><div class="leader-label">Best GAA</div><div class="leader-name">Kyler Lapierre</div><div class="leader-stat">1.89</div></div>
+          <div class="leader-card"><div class="leader-label">Best SV%</div><div class="leader-name">Kyler Lapierre</div><div class="leader-stat">.875</div></div>
+          <div class="leader-card"><div class="leader-label">Most Wins</div><div class="leader-name">Kyler Lapierre</div><div class="leader-stat">1 W</div></div>
+          <div class="leader-card"><div class="leader-label">Most Shutouts</div><div class="leader-name">Kyler Lapierre</div><div class="leader-stat">1 SO</div></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Goalie</th><th class="num">GP</th><th class="num">GA</th><th class="num">GAA</th><th class="num">SV</th><th class="num">SV%</th><th class="num">W</th><th class="num">L</th><th class="num">SO</th></tr></thead>
+            <tbody>
+              <tr><td>29</td><td><span class="player-name">Kyler Lapierre</span></td><td class="num">2</td><td class="num">3</td><td class="num highlight">1.89</td><td class="num">21</td><td class="num highlight">.875</td><td class="num">1</td><td class="num">0</td><td class="num">1</td></tr>
+              <tr><td>1</td><td><span class="player-name">Easton Young</span></td><td class="num">3</td><td class="num">13</td><td class="num">4.83</td><td class="num">60</td><td class="num">.822</td><td class="num">1</td><td class="num">2</td><td class="num">0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="roster" class="tab-panel">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Player</th><th>Pos</th><th>DOB</th></tr></thead>
+            <tbody>
+              <tr><td>3</td><td><span class="player-name">Easton Fowler</span></td><td>F</td><td>Jan 22, 2010</td></tr>
+              <tr><td>8</td><td><span class="player-name">Laken Cesar</span></td><td>D</td><td>Aug 12, 2009</td></tr>
+              <tr><td>12</td><td><span class="player-name">Evan Cronk</span></td><td>F</td><td>Feb 16, 2010</td></tr>
+              <tr><td>13</td><td><span class="player-name">Caleb Burton</span></td><td>F</td><td>Jan 7, 2010</td></tr>
+              <tr><td>15</td><td><span class="player-name">Jackson McNabb</span></td><td>F</td><td>Dec 2010</td></tr>
+              <tr><td>18</td><td><span class="player-name">Bentley Mundell</span></td><td>F</td><td>May 28, 2010</td></tr>
+              <tr><td>66</td><td><span class="player-name">Aiden Pierzchala</span></td><td>D</td><td>Feb 2, 2010</td></tr>
+              <tr><td>67</td><td><span class="player-name">Kaiden Kado</span></td><td>D</td><td>Aug 14, 2010</td></tr>
+              <tr><td>71</td><td><span class="player-name">Logan Hooper</span></td><td>D</td><td>Aug 24, 2010</td></tr>
+              <tr><td>87</td><td><span class="player-name">Kaden Roberts</span></td><td>F</td><td>Sep 20, 2010</td></tr>
+              <tr><td>88</td><td><span class="player-name">Dallas Whitten</span></td><td>D</td><td>Sep 6, 2010</td></tr>
+              <tr><td>91</td><td><span class="player-name">Nixon Allred</span></td><td>F</td><td>Mar 16, 2010</td></tr>
+              <tr><td>92</td><td><span class="player-name">Gaven Blasco</span></td><td>D</td><td>Aug 17, 2010</td></tr>
+              <tr><td>97</td><td><span class="player-name">Mason Manning</span></td><td>F</td><td>Aug 27, 2010</td></tr>
+              <tr><td>98</td><td><span class="player-name">Owen Mullen</span></td><td>F</td><td>Jan 4, 2010</td></tr>
+              <tr><td>1</td><td><span class="player-name">Easton Young</span></td><td>G</td><td>Aug 9, 2010</td></tr>
+              <tr><td>29</td><td><span class="player-name">Kyler Lapierre</span></td><td>G</td><td>Mar 6, 2010</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="note">Stats from <a href="https://gamesheetstats.com/seasons/14793/teams/506641/preview" target="_blank" rel="noopener">GameSheet</a> — Alberta Roughriders, Vegas Spring Fling.</div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="footer-brand">Alberta <span>Roughriders</span></div>
+      <div>Black ice · Pink aura · Alberta pride</div>
+      <div style="margin-top:1rem;font-size:.78rem">© 2026 Alberta Roughriders</div>
+    </div>
+  </footer>
+  <script>
+    document.querySelectorAll('.tab').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
