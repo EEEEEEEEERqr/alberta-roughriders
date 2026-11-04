@@ -1,1 +1,411 @@
-See local file - will use bash to verify after
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alberta Roughriders | Official Team Site</title>
+  <meta name="description" content="Official website of the Alberta Roughriders hockey team. Black ice, pink aura.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000000;
+      --border: #1a1a1a;
+      --text: #ffffff;
+      --muted: #888888;
+      --pink: #ff4d9e;
+      --pink-soft: #ff7eb9;
+      --pink-glow: rgba(255, 77, 158, 0.4);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #000000;
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.25; }
+      50% { opacity: 1; }
+    }
+    @keyframes pulsePink {
+      0%, 100% { box-shadow: 0 0 0 0 var(--pink-glow); }
+      50% { box-shadow: 0 0 28px 6px var(--pink-glow); }
+    }
+    @keyframes drawOutline {
+      0% { stroke-dashoffset: 900; opacity: 0.3; }
+      40% { opacity: 1; }
+      100% { stroke-dashoffset: 0; opacity: 0.85; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    .signature {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      color: var(--pink);
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
+
+    .stars {
+      position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+    }
+    .stars span {
+      position: absolute; width: 2px; height: 2px; background: #fff; border-radius: 50%;
+      opacity: 0.4; animation: twinkle 3s ease-in-out infinite;
+    }
+    .stars span.pink { background: var(--pink-soft); }
+
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: #000000;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; height: 72px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.1rem; letter-spacing: -0.03em;
+    }
+    .logo img {
+      height: 46px; width: auto;
+      filter: drop-shadow(0 0 10px var(--pink-glow));
+    }
+    .logo span { color: var(--pink); }
+
+    .nav-links {
+      display: flex; gap: 1.8rem; list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.9rem; font-weight: 600; color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--pink); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.7rem 1.3rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.9rem;
+      transition: all 0.25s;
+      cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--pink); color: #000;
+    }
+    .btn-primary:hover { background: var(--pink-soft); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; border: 1px solid #333; color: #fff;
+    }
+    .btn-outline:hover { border-color: var(--pink); color: var(--pink-soft); }
+    .btn-lg { padding: 0.95rem 1.7rem; font-size: 1rem; }
+
+    .hero {
+      position: relative;
+      padding: 5.5rem 0 4.5rem;
+      background: #000000;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(255,77,158,0.08);
+      pointer-events: none;
+    }
+
+    .logo-wrap {
+      position: relative;
+      width: 180px; height: 180px;
+      margin: 0 auto 1.8rem;
+      animation: float 4s ease-in-out infinite;
+    }
+    .logo-wrap img {
+      width: 100%; height: 100%; object-fit: contain;
+      position: relative; z-index: 2;
+      filter: drop-shadow(0 0 18px var(--pink-glow));
+    }
+    .logo-wrap svg.outline {
+      position: absolute; inset: -12px;
+      width: calc(100% + 24px); height: calc(100% + 24px);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .logo-wrap svg.outline path {
+      fill: none;
+      stroke: var(--pink);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 900;
+      stroke-dashoffset: 900;
+      animation: drawOutline 2.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      filter: drop-shadow(0 0 6px var(--pink-glow));
+    }
+    .logo-wrap svg.outline path.delay {
+      animation-delay: 0.4s;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 .pink { color: var(--pink); }
+    .hero p.lead {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 1.8rem;
+    }
+    .hero-ctas {
+      display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    section { padding: 5rem 0; position: relative; background: #000000; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 0.6rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .step-card {
+      background: #000000;
+      padding: 1.8rem 1.5rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .step-card:hover { background: #000000; transform: translateY(-3px); }
+    .step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--pink);
+      margin-bottom: 0.5rem;
+    }
+    .step-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+    .step-card p { color: var(--muted); font-size: 0.92rem; }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .feature-card {
+      background: #000000;
+      padding: 1.8rem 1.5rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .feature-card:hover { background: #000000; transform: translateY(-3px); }
+    .feature-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
+    .feature-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .feature-card p { color: var(--muted); font-size: 0.92rem; }
+
+    .identity-band {
+      background: #000000;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 0;
+      text-align: center;
+    }
+    .identity-band h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      margin-bottom: 0.6rem;
+    }
+    .pills {
+      display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center;
+      background: var(--border); border: 1px solid var(--border); max-width: 700px; margin: 0 auto;
+    }
+    .pill { background: #000000; padding: 1rem 1.4rem; min-width: 170px; flex: 1; }
+    .pill strong { display: block; color: var(--pink); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.25rem; }
+
+    .final-cta {
+      text-align: center;
+      padding: 5rem 0;
+      background: #000000;
+    }
+    .final-cta h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin-bottom: 0.8rem;
+    }
+    .final-cta p { color: var(--muted); margin-bottom: 1.6rem; }
+
+    footer {
+      background: #000000; color: var(--muted); padding: 2.5rem 0 1.6rem;
+      font-size: 0.84rem; border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #fff;
+    }
+    .footer-brand span { color: var(--pink); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .logo-wrap { width: 140px; height: 140px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <img src="" class="team-logo" alt="Alberta Roughriders">
+        Alberta<span>Roughriders</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="stats.html">Stats</a></li>
+        <li><a href="coaches.html">Coaches</a></li>
+        <li><a href="highlights.html">Highlights</a></li>
+      </ul>
+      <a href="stats.html" class="btn btn-primary">View Stats</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="stars" id="stars"></div>
+    <div class="container">
+      <div class="logo-wrap reveal">
+        <svg class="outline" viewBox="0 0 200 200" aria-hidden="true">
+          <path d="M30 100 Q50 30 100 40 Q150 50 170 100 Q150 150 100 160 Q50 170 30 100" />
+          <path class="delay" d="M40 100 Q60 50 100 55 Q140 60 160 100 Q140 140 100 145 Q60 150 40 100" />
+        </svg>
+        <img src="" class="team-logo" alt="Alberta Roughriders logo">
+      </div>
+      <h1 class="reveal reveal-delay-1">Alberta <span class="pink">Roughriders</span></h1>
+      <p class="lead reveal reveal-delay-2">Black ice. Pink aura. Cowboy grit. The official home of Alberta's toughest squad.</p>
+      <div class="hero-ctas reveal reveal-delay-2">
+        <a href="stats.html" class="btn btn-primary btn-lg">Player Stats</a>
+        <a href="highlights.html" class="btn btn-outline btn-lg">Highlights</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">The Ride</div>
+      <div class="steps">
+        <div class="step-card reveal">
+          <div class="step-num">01</div>
+          <h3>Show Up</h3>
+          <p>Every shift, every period. No shortcuts on the ice or off it.</p>
+        </div>
+        <div class="step-card reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <h3>Compete</h3>
+          <p>Physical, fast, and relentless. We play the Alberta way.</p>
+        </div>
+        <div class="step-card reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <h3>Finish</h3>
+          <p>Close games. Clutch moments. Pink aura until the final buzzer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Identity</div>
+      <div class="features">
+        <div class="feature-card reveal"><div class="feature-icon">🤠</div><h3>Cowboy Mentality</h3><p>Tough, resilient, never rattled. The logo is a statement.</p></div>
+        <div class="feature-card reveal reveal-delay-1"><div class="feature-icon">🏒</div><h3>Black & Pink</h3><p>All-black ice with that signature pink aura. Unmistakable.</p></div>
+        <div class="feature-card reveal reveal-delay-2"><div class="feature-icon">⚡</div><h3>Built Different</h3><p>Young, hungry, and playing with something to prove every night.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="identity-band">
+    <div class="container">
+      <h2 class="reveal">This is the <span class="signature">Roughriders</span></h2>
+      <div class="pills reveal">
+        <div class="pill"><strong>Style</strong> Physical & Fast</div>
+        <div class="pill"><strong>Look</strong> Black + Pink Aura</div>
+        <div class="pill"><strong>Mindset</strong> Cowboy Grit</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="reveal">Ready for the next shift?</h2>
+      <p class="reveal">Check the stats, meet the coaches, or catch the highlights.</p>
+      <div class="hero-ctas reveal">
+        <a href="stats.html" class="btn btn-primary btn-lg">Stats</a>
+        <a href="coaches.html" class="btn btn-outline btn-lg">Coaches</a>
+        <a href="highlights.html" class="btn btn-outline btn-lg">YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">Alberta <span>Roughriders</span></div>
+      <div>Official team site · Black ice, pink aura</div>
+    </div>
+  </footer>
+
+  <script>
+    const stars = document.getElementById('stars');
+    for (let i = 0; i < 60; i++) {
+      const s = document.createElement('span');
+      s.style.left = Math.random() * 100 + '%';
+      s.style.top = Math.random() * 100 + '%';
+      s.style.animationDelay = Math.random() * 3 + 's';
+      if (Math.random() > 0.7) s.classList.add('pink');
+      stars.appendChild(s);
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+  </script>
+  <script src="logo.js"></script>
+</body>
+</html>
