@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" fill="#000"/>
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#ff4d9e" stroke-width="4"/>
+  <text x="100" y="115" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="42" fill="#ff4d9e" font-weight="900">AR</text>
+  <text x="100" y="145" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#ff7eb9">ROUGHRIDERS</text>
+</svg>
