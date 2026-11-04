@@ -2,18 +2,21 @@
 
 Official team website — **black ice, pink aura**.
 
-## Pages
-- `index.html` — Home
-- `stats.html` — Player & team stats (from GameSheet)
+## Live preview
+- https://raw.githack.com/EEEEEEEEERqr/alberta-roughriders/main/index.html
+- https://raw.githack.com/EEEEEEEEERqr/alberta-roughriders/main/stats.html
 
-## Features
-- Black theme with pink aura accents
-- Embedded team logo (loads everywhere)
-- Full roster, skater points, goalie stats, leaders
-- Power Play 25.0% · Penalty Kill 92.3% · Streak W1
-
-## Live
-Enable **GitHub Pages** on this repo (Settings → Pages → Deploy from `main`) then visit:
+Enable **GitHub Pages** (Settings → Pages → Deploy from `main`) for:
 `https://EEEEEEEEERqr.github.io/alberta-roughriders/`
 
-Or use: https://raw.githack.com/EEEEEEEEERqr/alberta-roughriders/main/index.html
+## Stats highlights
+- Power Play: **25.0%**
+- Penalty Kill: **92.3%**
+- Goal differential: **-1**
+- Streak: **Won 1**
+- Points leader: **#13 Caleb Burton (7)**
+- Goals leader: **Caleb Burton (5)**
+- Most PIM: **#15 Jackson McNabb (27)**
+- Best GAA / SV%: **Kyler Lapierre (1.89 / .875)**
+
+Logo is embedded in the HTML so it loads on every host.
