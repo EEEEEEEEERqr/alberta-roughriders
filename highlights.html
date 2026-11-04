@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Highlights | Alberta Roughriders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#000;--border:#1a1a1a;--text:#fff;--muted:#888;--pink:#ff4d9e;--pink-soft:#ff7eb9;--pink-glow:rgba(255,77,158,.4)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,system-ui,sans-serif;background:#000;color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+    header{position:sticky;top:0;z-index:100;background:#000;border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo{display:flex;align-items:center;gap:.7rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem}
+    .logo img{height:46px;filter:drop-shadow(0 0 10px var(--pink-glow))}
+    .logo span{font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--pink)}
+    .nav-links{display:flex;gap:1.6rem;list-style:none}
+    .nav-links a{font-size:.88rem;color:var(--muted)}.nav-links a:hover,.nav-links a.active{color:var(--pink-soft)}
+    .btn{display:inline-flex;padding:.65rem 1.25rem;border-radius:4px;font-weight:700;font-size:.88rem;font-family:'Space Grotesk',sans-serif;border:1px solid #333;background:transparent;color:#fff}
+    .btn:hover{border-color:var(--pink);color:var(--pink-soft)}
+    .btn-primary{background:var(--pink);color:#000;border:none}
+    .btn-primary:hover{background:var(--pink-soft)}
+    .page-hero{padding:3.2rem 0 2.2rem;text-align:center;border-bottom:1px solid var(--border);background:#000}
+    .page-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,2.7rem);font-weight:700}
+    .signature{font-family:'Great Vibes',cursive;color:var(--pink)}
+    .page-hero p{color:var(--muted);margin-top:.4rem}
+    section{padding:3.2rem 0;background:#000}
+    .section-label{font-size:.72rem;font-weight:600;color:var(--pink-soft);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
+    .yt-link{display:inline-flex;align-items:center;gap:.5rem;margin:1.2rem 0 2rem;padding:.7rem 1.3rem;border:1px solid rgba(255,77,158,.4);border-radius:4px;color:var(--pink-soft);font-weight:600;font-family:'Space Grotesk',sans-serif;transition:all .2s}
+    .yt-link:hover{background:rgba(255,77,158,.1);border-color:var(--pink)}
+    .videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+    .video-card{background:#000;border:1px solid var(--border);overflow:hidden;transition:border-color .25s}
+    .video-card:hover{border-color:var(--pink)}
+    .video-card iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+    .video-card .meta{padding:1rem 1.1rem}
+    .video-card h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.3rem}
+    .video-card p{font-size:.82rem;color:var(--muted)}
+    footer{background:#000;color:var(--muted);padding:2.2rem 0 1.4rem;font-size:.84rem;border-top:1px solid var(--border);margin-top:1.5rem}
+    .footer-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff}.footer-brand span{color:var(--pink)}
+    @media(max-width:768px){.nav-links{display:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <img src="logo.svg" alt="Alberta Roughriders" class="team-logo">
+        Alberta<span>Roughriders</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="stats.html">Stats</a></li>
+        <li><a href="coaches.html">Coaches</a></li>
+        <li><a href="highlights.html" class="active">Highlights</a></li>
+      </ul>
+      <a href="index.html" class="btn">Back Home</a>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label">Media</div>
+      <h1>Highlights & <span class="signature">Videos</span></h1>
+      <p>Watch the Roughriders in action</p>
+      <a class="yt-link" href="https://www.youtube.com/@AlbertaRoughridersOfficial" target="_blank" rel="noopener">
+        ▶ Subscribe on YouTube — @AlbertaRoughridersOfficial
+      </a>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="section-label">Featured</div>
+      <div class="videos">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/1jr5A3H1Ceo" title="Alberta Roughriders highlight" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="meta">
+            <h3>Highlight Reel</h3>
+            <p>Alberta Roughriders Official</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/GdLZS_T9u-k" title="Alberta Roughriders highlight" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="meta">
+            <h3>Highlight Reel</h3>
+            <p>Alberta Roughriders Official</p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <a href="https://www.youtube.com/@AlbertaRoughridersOfficial" class="btn btn-primary" target="_blank" rel="noopener">Open YouTube Channel →</a>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="footer-brand">Alberta <span>Roughriders</span></div>
+      <div>Black ice · Pink aura · Alberta pride</div>
+    </div>
+  </footer>
+  <script src="logo.js"></script>
+</body>
+</html>
