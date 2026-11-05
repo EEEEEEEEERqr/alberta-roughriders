@@ -16,7 +16,7 @@
     .logo{display:flex;align-items:center;gap:.7rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem}
     .logo img{height:46px;filter:drop-shadow(0 0 10px var(--pink-glow))}
     .logo span{font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--pink)}
-    .nav-links{display:flex;gap:1.4rem;list-style:none;flex-wrap:wrap}
+    .nav-links{display:flex;gap:1.2rem;list-style:none;flex-wrap:wrap}
     .nav-links a{font-size:.86rem;color:var(--muted)}.nav-links a:hover,.nav-links a.active{color:var(--pink-soft)}
     .btn{display:inline-flex;padding:.65rem 1.25rem;border-radius:4px;font-weight:700;font-size:.88rem;font-family:'Space Grotesk',sans-serif;border:1px solid #333;background:transparent;color:#fff}
     .btn:hover{border-color:var(--pink);color:var(--pink-soft)}
@@ -36,11 +36,10 @@
     .staff-card{background:#000;border:1px solid var(--border);border-radius:10px;padding:1.6rem 1.4rem;transition:border-color .25s,transform .25s,box-shadow .25s}
     .staff-card:hover{border-color:rgba(255,77,158,.45);transform:translateY(-4px);box-shadow:0 8px 28px rgba(255,77,158,.12)}
     .staff-icon{width:48px;height:48px;border-radius:10px;background:rgba(255,77,158,.08);border:1px solid rgba(255,77,158,.2);display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:1rem;overflow:hidden}
-    .staff-icon img{width:100%;height:100%;object-fit:cover}
     .staff-role{font-size:.7rem;font-weight:600;color:var(--pink);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem}
     .staff-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem}
-    .marvin-card{border:1px solid rgba(255,77,158,.35);background:linear-gradient(160deg,rgba(255,77,158,.07) 0%,transparent 55%)}
-    .marvin-card .staff-icon{width:72px;height:72px;border-radius:50%;border:2px solid var(--pink);box-shadow:0 0 16px var(--pink-glow)}
+    .mascot-note{margin-top:2rem;padding:1.4rem 1.5rem;border:1px solid rgba(255,77,158,.3);border-radius:12px;background:linear-gradient(145deg,rgba(255,77,158,.07),transparent)}
+    .mascot-note a{color:var(--pink-soft);font-weight:600}
     footer{background:#000;color:var(--muted);padding:2.5rem 0 1.6rem;font-size:.84rem;border-top:1px solid var(--border);margin-top:1rem}
     .footer-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff}.footer-brand span{color:var(--pink)}
     @media(max-width:768px){.nav-links{display:none}.head-featured{flex-direction:column;text-align:center}}
@@ -54,6 +53,7 @@
         Alberta<span>Roughriders</span>
       </a>
       <ul class="nav-links">
+        <li><a href="marvin.html">Marvin</a></li>
         <li><a href="index.html">Home</a></li>
         <li><a href="stats.html">Stats</a></li>
         <li><a href="coaches.html" class="active">Coaches</a></li>
@@ -87,11 +87,10 @@
         <div class="staff-card"><div class="staff-icon">📋</div><div class="staff-role">Assistant Coach</div><div class="staff-name">Jeremy Pierzchala</div></div>
         <div class="staff-card"><div class="staff-icon">📋</div><div class="staff-role">Assistant Coach</div><div class="staff-name">Joe Roberts</div></div>
         <div class="staff-card"><div class="staff-icon">🗂️</div><div class="staff-role">Manager</div><div class="staff-name">Bailey Kado</div></div>
-        <div class="staff-card marvin-card">
-          <div class="staff-icon"><img src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/marvin.png" alt="Marvin Wobick"></div>
-          <div class="staff-role">Staff</div>
-          <div class="staff-name">Marvin Wobick</div>
-        </div>
+      </div>
+      <div class="mascot-note">
+        Looking for Marvin? He’s not staff — he’s our <strong>official mascot</strong>.
+        <a href="marvin.html">Visit the Marvin Wobick page →</a>
       </div>
     </div>
   </section>
@@ -102,6 +101,5 @@
       <div style="margin-top:1rem;font-size:.78rem">© 2026 Alberta Roughriders</div>
     </div>
   </footer>
-  <script src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/logo.js"></script>
 </body>
 </html>
