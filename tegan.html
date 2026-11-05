@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tegan Gaudet | Alberta Roughriders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#000;--border:#1a1a1a;--text:#fff;--muted:#888;--pink:#ff4d9e;--pink-soft:#ff7eb9;--pink-glow:rgba(255,77,158,.45)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,system-ui,sans-serif;background:#000;color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+    header{position:sticky;top:0;z-index:100;background:#000;border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo{display:flex;align-items:center;gap:.7rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem}
+    .logo img{height:46px;filter:drop-shadow(0 0 10px var(--pink-glow))}
+    .logo span{font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--pink)}
+    .nav-links{display:flex;gap:1.4rem;list-style:none;flex-wrap:wrap}
+    .nav-links a{font-size:.86rem;color:var(--muted)}.nav-links a:hover,.nav-links a.active{color:var(--pink-soft)}
+    .btn{display:inline-flex;padding:.65rem 1.25rem;border-radius:4px;font-weight:700;font-size:.88rem;font-family:'Space Grotesk',sans-serif;border:1px solid #333;background:transparent;color:#fff}
+    .btn:hover{border-color:var(--pink);color:var(--pink-soft)}
+    .btn-primary{background:var(--pink);color:#000;border-color:var(--pink)}
+    .btn-primary:hover{background:var(--pink-soft);color:#000}
+    .player-hero{padding:3.5rem 0 3rem;border-bottom:1px solid var(--border);background:#000;position:relative;overflow:hidden}
+    .player-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 70% 40%,rgba(255,77,158,.12),transparent 65%);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:2.5rem;align-items:center;position:relative;z-index:1}
+    .hero-photo{border-radius:16px;overflow:hidden;border:2px solid rgba(255,77,158,.35);box-shadow:0 0 40px rgba(255,77,158,.2);aspect-ratio:4/3;background:#0a0a0a}
+    .hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .section-label{font-size:.72rem;font-weight:600;color:var(--pink-soft);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem}
+    .player-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5vw,3.4rem);font-weight:700;letter-spacing:-.03em;margin-bottom:.35rem}
+    .player-name span{color:var(--pink)}
+    .player-meta{color:var(--muted);font-size:1.05rem;margin-bottom:1.5rem}
+    .player-meta strong{color:var(--pink-soft)}
+    .stat-pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.75rem}
+    .pill{background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;min-width:90px;text-align:center}
+    .pill-val{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.35rem;color:var(--pink)}
+    .pill-lbl{font-size:.65rem;color:var(--muted);text-transform:uppercase}
+    section{padding:3.2rem 0;background:#000}
+    .bio-card{background:linear-gradient(145deg,rgba(255,77,158,.06),transparent 60%);border:1px solid rgba(255,77,158,.2);border-radius:14px;padding:2rem 1.75rem;max-width:720px}
+    .bio-card h2{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;margin-bottom:.75rem}
+    .bio-card p{color:#ccc;margin-bottom:.8rem}
+    .highlight-line{color:var(--pink-soft);font-weight:600}
+    .back-row{margin-top:2rem}
+    footer{background:#000;color:var(--muted);padding:2.5rem 0 1.6rem;font-size:.84rem;border-top:1px solid var(--border)}
+    .footer-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff}.footer-brand span{color:var(--pink)}
+    @media(max-width:800px){.hero-grid{grid-template-columns:1fr}.nav-links{display:none}.hero-photo{max-width:420px;margin:0 auto}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <img src="" class="team-logo" alt="Alberta Roughriders">
+        Alberta<span>Roughriders</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="stats.html">Stats</a></li>
+        <li><a href="coaches.html">Coaches</a></li>
+        <li><a href="prospects.html" class="active">Prospects</a></li>
+        <li><a href="highlights.html">Highlights</a></li>
+      </ul>
+      <a href="prospects.html" class="btn">← Prospects</a>
+    </div>
+  </header>
+  <section class="player-hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-photo">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCACsAPADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//2Q==" alt="Tegan Gaudet celebration">
+        </div>
+        <div>
+          <div class="section-label">Prospect Spotlight</div>
+          <h1 class="player-name">Tegan <span>Gaudet</span></h1>
+          <p class="player-meta"><strong>#7</strong> · Defence · U18AAAA</p>
+          <div class="stat-pills">
+            <div class="pill"><div class="pill-val">3</div><div class="pill-lbl">GP</div></div>
+            <div class="pill"><div class="pill-val">400</div><div class="pill-lbl">Goals</div></div>
+            <div class="pill"><div class="pill-val">1</div><div class="pill-lbl">Kills</div></div>
+            <div class="pill"><div class="pill-val">D</div><div class="pill-lbl">Pos</div></div>
+          </div>
+          <a href="prospects.html" class="btn btn-primary">All Prospects →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="section-label">About</div>
+      <div class="bio-card">
+        <h2>The unit from U18AAAA</h2>
+        <p>Tegan Gaudet doesn’t just play defence — she rearranges the scoreboard. Three games. <span class="highlight-line">Four hundred goals.</span> One kill.</p>
+        <p>Pure Roughriders energy in the pink jersey. Big smile, bigger numbers, and the kind of presence that makes the whole bench lose their minds.</p>
+        <p style="margin-bottom:0;color:var(--muted);font-size:.9rem">U18AAAA · Defence · Alberta Roughriders prospect</p>
+      </div>
+      <div class="back-row">
+        <a href="prospects.html" class="btn">← Back to Prospects</a>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="footer-brand">Alberta <span>Roughriders</span></div>
+      <div>Black ice · Pink aura · Alberta pride</div>
+      <div style="margin-top:1rem;font-size:.78rem">© 2026 Alberta Roughriders</div>
+    </div>
+  </footer>
+  <script src="logo.js"></script>
+</body>
+</html>
