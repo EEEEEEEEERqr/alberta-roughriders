@@ -26,61 +26,14 @@
     .dates{color:var(--muted);margin-top:.4rem}
     .mascot-badge{display:inline-block;margin-top:1rem;font-size:.75rem;font-weight:700;color:#000;background:var(--pink);padding:.35rem .85rem;border-radius:999px;text-transform:uppercase}
     section{padding:2.5rem 0;background:#000}
-
-    /* Side-by-side: phone video + photo */
-    .hl-grid{
-      display:flex;
-      flex-wrap:wrap;
-      gap:1.75rem;
-      justify-content:center;
-      align-items:flex-start;
-    }
-
-    /* PHONE-SHAPED VIDEO — fixed 9:16, nothing cropped */
-    .phone{
-      width:min(300px, 85vw);
-      flex-shrink:0;
-      border:1px solid rgba(255,77,158,.4);
-      border-radius:18px;
-      overflow:hidden;
-      background:#000;
-      box-shadow:0 0 28px rgba(255,77,158,.18);
-    }
-    .phone video{
-      display:block;
-      width:100% !important;
-      height:auto !important;
-      aspect-ratio:9/16 !important;
-      object-fit:contain !important;
-      object-position:center center !important;
-      background:#000;
-    }
-    .phone .hl-meta,
-    .photo-card .hl-meta{
-      padding:.85rem 1rem;
-      border-top:1px solid var(--border);
-    }
+    .hl-grid{display:flex;flex-wrap:wrap;gap:1.75rem;justify-content:center;align-items:flex-start}
+    .phone{width:min(300px,85vw);flex-shrink:0;border:1px solid rgba(255,77,158,.4);border-radius:18px;overflow:hidden;background:#000;box-shadow:0 0 28px rgba(255,77,158,.18)}
+    .phone video{display:block;width:100%!important;height:auto!important;aspect-ratio:9/16!important;object-fit:contain!important;object-position:center center!important;background:#000}
+    .phone .hl-meta,.photo-card .hl-meta{padding:.85rem 1rem;border-top:1px solid var(--border)}
     .hl-meta h3{font-family:'Space Grotesk',sans-serif;font-size:1rem;margin-bottom:.15rem}
     .hl-meta p{font-size:.8rem;color:var(--muted)}
-
-    .photo-card{
-      flex:1 1 280px;
-      max-width:420px;
-      border:1px solid rgba(255,77,158,.35);
-      border-radius:14px;
-      overflow:hidden;
-      background:#000;
-      box-shadow:0 0 24px rgba(255,77,158,.12);
-    }
-    .photo-card img{
-      display:block;
-      width:100%;
-      height:auto;
-      max-height:none;
-      object-fit:contain;
-      background:#111;
-    }
-
+    .photo-card{flex:1 1 280px;max-width:420px;border:1px solid rgba(255,77,158,.35);border-radius:14px;overflow:hidden;background:#000;box-shadow:0 0 24px rgba(255,77,158,.12)}
+    .photo-card img{display:block;width:100%;height:auto;object-fit:contain;background:#111}
     .portrait-wrap{display:flex;justify-content:center;margin-bottom:2rem}
     .portrait{width:180px;height:180px;border-radius:50%;overflow:hidden;border:3px solid var(--pink);box-shadow:0 0 28px var(--pink-glow)}
     .portrait img{width:100%;height:100%;object-fit:cover}
@@ -108,7 +61,6 @@
     <div class="blood"></div>
     <img class="face" src="https://cdn.jsdelivr.net/gh/EEEEEEEEERqr/alberta-roughriders@main/tegan.jpg" alt="">
   </div>
-
   <header>
     <div class="container nav">
       <a href="index.html" class="logo">
@@ -126,7 +78,6 @@
       <a href="index.html" class="btn">Home</a>
     </div>
   </header>
-
   <section class="page-hero">
     <div class="container">
       <div class="section-label">Team Mascot</div>
@@ -135,13 +86,10 @@
       <div class="mascot-badge">Official Mascot · Alberta Roughriders</div>
     </div>
   </section>
-
   <section>
     <div class="container">
       <div class="section-label" style="margin-bottom:1rem">Marvin Highlights</div>
       <div class="hl-grid">
-
-        <!-- Phone-shaped vertical video (full 9:16, no crop) -->
         <div class="phone">
           <video controls playsinline preload="auto"
             src="https://cdn.jsdelivr.net/gh/EEEEEEEEERqr/alberta-roughriders@main/f6496571-4571-495f-b16a-9316f0cb4440.mp4">
@@ -151,8 +99,6 @@
             <p>Full vertical video · nothing cut off</p>
           </div>
         </div>
-
-        <!-- Photo -->
         <div class="photo-card">
           <img src="https://cdn.jsdelivr.net/gh/EEEEEEEEERqr/alberta-roughriders@main/Marvin%20the%20Roughriders%20Mascot%20on%20Ice.png" alt="Marvin the Roughriders Mascot on Ice">
           <div class="hl-meta">
@@ -160,11 +106,9 @@
             <p>Official mascot photo</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
-
   <section>
     <div class="container">
       <div class="portrait-wrap">
@@ -187,14 +131,12 @@
       </div>
     </div>
   </section>
-
   <footer>
     <div class="container">
       <div class="footer-brand">Alberta <span>Roughriders</span></div>
       <div>© 2026 · In memory of Marvin Wobick</div>
     </div>
   </footer>
-
   <script>
   (function(){
     var layer = document.getElementById('jumpscare');
@@ -229,7 +171,8 @@
       setTimeout(function(){ layer.classList.remove('hold'); layer.classList.add('walk'); }, 1100);
       setTimeout(function(){ layer.classList.remove('on','walk'); }, 3400);
     }
-    setTimeout(run, 300);
+    // only 1 in 5 visits
+    if (Math.random() < 0.2) setTimeout(run, 300);
     document.addEventListener('click', function once(){
       try{ var c=new (window.AudioContext||window.webkitAudioContext)(); c.resume(); }catch(e){}
       document.removeEventListener('click', once);
