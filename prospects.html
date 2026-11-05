@@ -168,7 +168,8 @@
       setTimeout(function(){ layer.classList.remove('hold'); layer.classList.add('walk'); }, 1100);
       setTimeout(function(){ layer.classList.remove('on','walk'); }, 3400);
     }
-    setTimeout(run, 300);
+    // only 1 in 5 visits
+    if (Math.random() < 0.2) setTimeout(run, 300);
     document.addEventListener('click', function once(){
       try{ var c=new (window.AudioContext||window.webkitAudioContext)(); c.resume(); }catch(e){}
       document.removeEventListener('click', once);
