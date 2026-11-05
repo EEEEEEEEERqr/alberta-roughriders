@@ -10,82 +10,62 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:Inter,system-ui,sans-serif;background:#000;color:var(--text);line-height:1.65}
     a{text-decoration:none;color:inherit}
-    .container{max-width:900px;margin:0 auto;padding:0 1.5rem}
+    .container{max-width:960px;margin:0 auto;padding:0 1.5rem}
     header{position:sticky;top:0;z-index:100;background:#000;border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
     .logo{display:flex;align-items:center;gap:.7rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem}
-    .logo img{height:46px;filter:drop-shadow(0 0 10px var(--pink-glow));background:transparent}
+    .logo img{height:46px;background:transparent}
     .logo span{font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--pink)}
-    .nav-links{display:flex;gap:1.2rem;list-style:none;flex-wrap:wrap}
+    .nav-links{display:flex;gap:1.1rem;list-style:none;flex-wrap:wrap}
     .nav-links a{font-size:.86rem;color:var(--muted)}.nav-links a:hover,.nav-links a.active{color:var(--pink-soft)}
-    .btn{display:inline-flex;padding:.65rem 1.25rem;border-radius:4px;font-weight:700;font-size:.88rem;font-family:'Space Grotesk',sans-serif;border:1px solid #333;background:transparent;color:#fff}
-    .btn:hover{border-color:var(--pink);color:var(--pink-soft)}
-    .page-hero{padding:3.5rem 0 2.5rem;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
-    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(255,77,158,.1),transparent);pointer-events:none}
+    .btn{display:inline-flex;padding:.65rem 1.25rem;border-radius:4px;font-weight:700;font-size:.88rem;border:1px solid #333;background:transparent;color:#fff}
+    .page-hero{padding:3rem 0 2rem;text-align:center;border-bottom:1px solid var(--border)}
     .section-label{font-size:.72rem;font-weight:600;color:var(--pink-soft);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem}
     .page-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,2.8rem);font-weight:700}
     .signature{font-family:'Great Vibes',cursive;color:var(--pink)}
-    .dates{color:var(--muted);margin-top:.4rem;font-size:.95rem}
-    section{padding:2.75rem 0;background:#000}
+    .dates{color:var(--muted);margin-top:.4rem}
+    .mascot-badge{display:inline-block;margin-top:1rem;font-size:.75rem;font-weight:700;color:#000;background:var(--pink);padding:.35rem .85rem;border-radius:999px;text-transform:uppercase}
+    section{padding:2.5rem 0;background:#000}
+    .hl-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:1.25rem}
+    .hl-card{border:1px solid rgba(255,77,158,.35);border-radius:14px;overflow:hidden;background:#000;box-shadow:0 0 24px rgba(255,77,158,.15)}
+    .hl-card video,.hl-card img{width:100%;display:block;background:#111}
+    .hl-card video{aspect-ratio:16/9;object-fit:cover}
+    .hl-card img{aspect-ratio:4/3;object-fit:cover;min-height:220px}
+    .hl-meta{padding:.9rem 1.1rem;border-top:1px solid var(--border)}
+    .hl-meta h3{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;margin-bottom:.2rem}
+    .hl-meta p{font-size:.82rem;color:var(--muted)}
     .portrait-wrap{display:flex;justify-content:center;margin-bottom:2rem}
     .portrait{width:180px;height:180px;border-radius:50%;overflow:hidden;border:3px solid var(--pink);box-shadow:0 0 28px var(--pink-glow)}
     .portrait img{width:100%;height:100%;object-fit:cover}
-    .mascot-badge{display:inline-block;margin-top:1rem;font-size:.75rem;font-weight:700;color:#000;background:var(--pink);padding:.35rem .85rem;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
     .card{background:linear-gradient(145deg,rgba(255,77,158,.06),transparent 55%);border:1px solid rgba(255,77,158,.22);border-radius:14px;padding:1.75rem 1.6rem;margin-bottom:1.25rem}
     .card h2{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;margin-bottom:.75rem;color:var(--pink-soft)}
     .card p{color:#ccc;margin-bottom:.85rem}
-    .card p:last-child{margin-bottom:0}
     .obit-link{color:var(--pink-soft);border-bottom:1px solid rgba(255,77,158,.4)}
-    .obit-link:hover{color:#fff}
-    /* Marvin highlights */
-    .marvin-highlights{padding:2.5rem 0 1rem;border-bottom:1px solid var(--border)}
-    .hl-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:1.25rem;align-items:stretch}
-    .hl-card{background:#000;border:1px solid rgba(255,77,158,.3);border-radius:14px;overflow:hidden;box-shadow:0 0 28px rgba(255,77,158,.12)}
-    .hl-card video,.hl-card img{width:100%;display:block;background:#0a0a0a}
-    .hl-card video{aspect-ratio:16/9;object-fit:cover}
-    .hl-card img{aspect-ratio:4/3;object-fit:cover}
-    .hl-meta{padding:0.9rem 1.1rem;border-top:1px solid var(--border)}
-    .hl-meta h3{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.2rem}
-    .hl-meta p{font-size:.82rem;color:var(--muted)}
-    footer{background:#000;color:var(--muted);padding:2.5rem 0 1.6rem;font-size:.84rem;border-top:1px solid var(--border)}
+    footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--muted);font-size:.84rem}
     .footer-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff}.footer-brand span{color:var(--pink)}
     #jumpscare{position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;overflow:hidden}
-    #jumpscare.active{opacity:1;pointer-events:auto}
-    #jumpscare.flash{animation:redFlash .08s steps(2) 4}
-    @keyframes redFlash{0%,100%{background:#000}50%{background:#3a0000}}
-    #jumpscare .blood-overlay{position:absolute;inset:0;pointer-events:none;z-index:5;background:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(120,0,0,.55),transparent 55%),radial-gradient(ellipse 60% 40% at 85% 15%,rgba(90,0,0,.45),transparent 50%),radial-gradient(ellipse 100% 30% at 50% 100%,rgba(80,0,0,.5),transparent 60%),linear-gradient(180deg,rgba(40,0,0,.3) 0%,transparent 40%,rgba(20,0,0,.4) 100%);opacity:0}
-    #jumpscare.active .blood-overlay{opacity:1}
-    #jumpscare .vignette{position:absolute;inset:0;z-index:6;pointer-events:none;background:radial-gradient(ellipse at center,transparent 25%,#000 85%);opacity:0}
-    #jumpscare.active .vignette{opacity:1}
-    #jumpscare .face-wrap{position:relative;z-index:3;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;transform:translateY(110vh) scale(0.2)}
-    #jumpscare.rush .face-wrap{animation:rushFace .28s cubic-bezier(.2,.9,.3,1.2) forwards}
-    #jumpscare.hold .face-wrap{transform:translateY(0) scale(1.35);animation:horrorShake .07s linear infinite}
-    #jumpscare.walk .face-wrap{animation:creepAway 2.4s ease-in forwards}
-    @keyframes rushFace{0%{transform:translateY(110vh) scale(.15);filter:blur(12px)}60%{transform:translateY(-4%) scale(1.45);filter:blur(0)}100%{transform:translateY(0) scale(1.35);filter:blur(0)}}
-    @keyframes horrorShake{0%{transform:translate(0,0) scale(1.35) rotate(-1.5deg)}25%{transform:translate(-12px,6px) scale(1.38) rotate(1deg)}50%{transform:translate(14px,-5px) scale(1.32) rotate(-2deg)}75%{transform:translate(-8px,8px) scale(1.4) rotate(1.5deg)}100%{transform:translate(6px,-3px) scale(1.35) rotate(-1deg)}}
-    @keyframes creepAway{0%{transform:translateY(0) scale(1.35);opacity:1}25%{transform:translateY(-5%) scale(1.1) rotate(-3deg);opacity:1}70%{transform:translateY(-15%) scale(.55) translateX(15vw) rotate(4deg);opacity:.6}100%{transform:translateY(-25%) scale(.2) translateX(40vw);opacity:0}}
-    #jumpscare img.face{width:min(100vw,1100px);height:min(100vh,1100px);object-fit:cover;filter:grayscale(1) contrast(1.55) brightness(0.85) sepia(.25) saturate(0);box-shadow:0 0 80px rgba(180,0,0,.6);border:none}
-    #jumpscare .blood-splatter{position:absolute;z-index:4;pointer-events:none;width:100%;height:100%;opacity:0;background-image:radial-gradient(circle at 30% 25%,rgba(160,0,0,.7) 0 4px,transparent 5px),radial-gradient(circle at 70% 20%,rgba(140,0,0,.65) 0 6px,transparent 7px),radial-gradient(circle at 20% 60%,rgba(120,0,0,.6) 0 8px,transparent 10px)}
-    #jumpscare.active .blood-splatter{opacity:1}
-    #jumpscare .glitch{position:absolute;inset:0;z-index:7;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.15) 2px,rgba(0,0,0,.15) 4px);opacity:0}
-    #jumpscare.hold .glitch{opacity:.7}
+    #jumpscare.on{opacity:1;pointer-events:auto}
+    #jumpscare .face{width:min(100vw,1000px);height:min(100vh,1000px);object-fit:cover;filter:grayscale(1) contrast(1.6) brightness(.8);transform:scale(.2) translateY(80vh);box-shadow:0 0 80px rgba(180,0,0,.7)}
+    #jumpscare.rush .face{animation:rush .3s ease-out forwards}
+    #jumpscare.hold .face{animation:shake .08s linear infinite;transform:scale(1.3)}
+    #jumpscare.walk .face{animation:away 2.2s ease-in forwards}
+    #jumpscare .blood{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(140,0,0,.5),transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(100,0,0,.45),transparent 55%);pointer-events:none}
+    @keyframes rush{0%{transform:scale(.15) translateY(80vh)}100%{transform:scale(1.3) translateY(0)}}
+    @keyframes shake{0%{transform:scale(1.3) rotate(-2deg) translate(-8px,4px)}50%{transform:scale(1.35) rotate(2deg) translate(10px,-4px)}100%{transform:scale(1.3) rotate(-1deg) translate(-4px,6px)}}
+    @keyframes away{0%{transform:scale(1.3);opacity:1}100%{transform:scale(.25) translate(40vw,-20vh);opacity:0}}
     @media(max-width:800px){.nav-links{display:none}.hl-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div id="jumpscare" aria-hidden="true">
-    <div class="blood-overlay"></div>
-    <div class="blood-splatter"></div>
-    <div class="vignette"></div>
-    <div class="glitch"></div>
-    <div class="face-wrap">
-      <img class="face" src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/tegan.jpg" alt="">
-    </div>
+    <div class="blood"></div>
+    <img class="face" src="https://cdn.jsdelivr.net/gh/EEEEEEEEERqr/alberta-roughriders@main/tegan.jpg" alt="">
   </div>
+
   <header>
     <div class="container nav">
       <a href="index.html" class="logo">
-        <img src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/256.avif" class="team-logo" alt="Alberta Roughriders">
+        <img src="https://cdn.jsdelivr.net/gh/EEEEEEEEERqr/alberta-roughriders@main/256.avif" class="team-logo" alt="Alberta Roughriders">
         Alberta<span>Roughriders</span>
       </a>
       <ul class="nav-links">
@@ -99,6 +79,7 @@
       <a href="index.html" class="btn">Home</a>
     </div>
   </header>
+
   <section class="page-hero">
     <div class="container">
       <div class="section-label">Team Mascot</div>
@@ -108,24 +89,22 @@
     </div>
   </section>
 
-  <!-- MARVIN HIGHLIGHTS -->
-  <section class="marvin-highlights">
+  <section>
     <div class="container">
       <div class="section-label" style="margin-bottom:1rem">Marvin Highlights</div>
       <div class="hl-grid">
         <div class="hl-card">
-          <video controls playsinline preload="metadata"
-            poster="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/Marvin%20the%20Roughriders%20Mascot%20on%20Ice.png"
-            src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/f6496571-4571-495f-b16a-9316f0cb4440.mp4">
-            Your browser does not support the video tag.
+          <video controls playsinline preload="auto"
+            poster="https://cdn.jsdelivr.net/gh/EEEEEEEEERqr/alberta-roughriders@main/Marvin%20the%20Roughriders%20Mascot%20on%20Ice.png"
+            src="https://cdn.jsdelivr.net/gh/EEEEEEEEERqr/alberta-roughriders@main/f6496571-4571-495f-b16a-9316f0cb4440.mp4">
           </video>
           <div class="hl-meta">
             <h3>Marvin on the ice</h3>
-            <p>Roughriders mascot highlight reel</p>
+            <p>Roughriders mascot highlight video</p>
           </div>
         </div>
         <div class="hl-card">
-          <img src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/Marvin%20the%20Roughriders%20Mascot%20on%20Ice.png" alt="Marvin the Roughriders Mascot on Ice">
+          <img src="https://cdn.jsdelivr.net/gh/EEEEEEEEERqr/alberta-roughriders@main/Marvin%20the%20Roughriders%20Mascot%20on%20Ice.png" alt="Marvin the Roughriders Mascot on Ice">
           <div class="hl-meta">
             <h3>Marvin the Roughriders Mascot on Ice</h3>
             <p>Official mascot photo</p>
@@ -139,39 +118,72 @@
     <div class="container">
       <div class="portrait-wrap">
         <div class="portrait">
-          <img src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/marvin.png" alt="Marvin Wobick">
+          <img src="https://cdn.jsdelivr.net/gh/EEEEEEEEERqr/alberta-roughriders@main/marvin.png" alt="Marvin Wobick">
         </div>
       </div>
       <div class="card">
         <h2>Our Mascot</h2>
         <p>Marvin Wobick is the heart of the Alberta Roughriders. We carry his name and spirit as our mascot — hard work, loyalty, and that old-school Alberta grit that never quits.</p>
-        <p>Every shift, every cheer, every pink aura moment on the ice is a nod to the kind of man Marvin was: steady, tough, and always there for family and community.</p>
       </div>
       <div class="card">
         <h2>In Memory</h2>
-        <p>Marvin Robert Wobick passed away on Wednesday, July 12, 2017 at South Health Campus in Calgary at age 91. He was born in Warner, South Dakota to Robert and Mary (Grohnke) Wobick. The family moved to Barons in 1927 to farm in the district.</p>
-        <p>Marv was a hard worker and a man of many talents — he drove semi, worked at a tire factory, built his own house, climbed telephone poles in stormy weather, and farmed from before sunrise to after sundown. He married Alice Huff on March 29, 1950. They raised three children: Brenda Lynn, Patricia Dawn, and Kevin Robert. He curled into his eighties and golfed until the year before he passed.</p>
-        <p>He is remembered by his son Kevin (Donna), grandsons, great-grandchildren including Brady Wobick, his sister Beverly Perry, and many nieces and nephews. He was predeceased by his wife Alice, daughters Brenda and Patty, and grandson Jared.</p>
-        <p style="margin-top:1rem">Full obituary: <a class="obit-link" href="https://www.lethbridgefuneralhome.com/obituary/Marvin-Wobick" target="_blank" rel="noopener">Lethbridge Funeral Home — Marvin Robert Wobick</a></p>
+        <p>Marvin Robert Wobick passed away July 12, 2017 at age 91. Born July 23, 1925 in Warner, South Dakota. Farmer, family man, curler, and the spirit behind this team.</p>
+        <p>Full obituary: <a class="obit-link" href="https://www.lethbridgefuneralhome.com/obituary/Marvin-Wobick" target="_blank" rel="noopener">Lethbridge Funeral Home</a></p>
       </div>
       <div class="card">
         <h2>Meaning to the Roughriders</h2>
-        <p>We made Marvin our mascot because he represents everything this team stands for: family, grit, and showing up. His great-grandsons and the Wobick name are part of the Roughriders story. When the pink hits the ice, Marvin is with us.</p>
-        <p style="color:var(--muted);font-size:.9rem;margin-bottom:0">Rest easy, Marvin. The Roughriders ride for you.</p>
+        <p>When the pink hits the ice, Marvin is with us. Rest easy, Marvin. The Roughriders ride for you.</p>
       </div>
     </div>
   </section>
+
   <footer>
     <div class="container">
       <div class="footer-brand">Alberta <span>Roughriders</span></div>
-      <div>Black ice · Pink aura · Alberta pride</div>
-      <div style="margin-top:1rem;font-size:.78rem">© 2026 Alberta Roughriders · In memory of Marvin Wobick</div>
+      <div>© 2026 · In memory of Marvin Wobick</div>
     </div>
   </footer>
-  <script src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/jumpscare.js"></script>
+
   <script>
-    if (window.RoughridersJumpscare) RoughridersJumpscare('jumpscare');
-    else setTimeout(function(){ if (window.RoughridersJumpscare) RoughridersJumpscare('jumpscare'); }, 400);
+  (function(){
+    var layer = document.getElementById('jumpscare');
+    function scream(){
+      try{
+        var ctx = new (window.AudioContext||window.webkitAudioContext)();
+        var t = ctx.currentTime;
+        function tone(type,freq,fEnd,start,dur,vol){
+          var o=ctx.createOscillator(),g=ctx.createGain();
+          o.type=type; o.frequency.setValueAtTime(freq,t+start);
+          if(fEnd) o.frequency.exponentialRampToValueAtTime(Math.max(20,fEnd),t+start+dur);
+          g.gain.setValueAtTime(0.0001,t+start);
+          g.gain.exponentialRampToValueAtTime(vol,t+start+0.04);
+          g.gain.exponentialRampToValueAtTime(0.0001,t+start+dur);
+          o.connect(g); g.connect(ctx.destination);
+          o.start(t+start); o.stop(t+start+dur+0.02);
+        }
+        tone('sine',55,40,0,2.8,0.35);
+        tone('sine',82.5,60,0.15,2.6,0.22);
+        tone('triangle',110,90,0.3,2.4,0.18);
+        tone('sawtooth',900,180,0.05,0.7,0.45);
+        tone('square',1200,90,0.08,0.55,0.28);
+        tone('sawtooth',700,60,0.12,0.9,0.35);
+        tone('sawtooth',1100,150,0.55,0.65,0.4);
+        tone('sawtooth',800,40,1.0,1.2,0.32);
+      }catch(e){}
+    }
+    function run(){
+      layer.classList.add('on','rush');
+      scream();
+      setTimeout(function(){ layer.classList.remove('rush'); layer.classList.add('hold'); }, 320);
+      setTimeout(function(){ layer.classList.remove('hold'); layer.classList.add('walk'); }, 1100);
+      setTimeout(function(){ layer.classList.remove('on','walk'); }, 3400);
+    }
+    setTimeout(run, 300);
+    document.addEventListener('click', function once(){
+      try{ var c=new (window.AudioContext||window.webkitAudioContext)(); c.resume(); }catch(e){}
+      document.removeEventListener('click', once);
+    });
+  })();
   </script>
 </body>
 </html>
