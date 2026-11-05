@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prospects | Alberta Roughriders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000000;
+      --border: #1a1a1a;
+      --text: #ffffff;
+      --muted: #888888;
+      --pink: #ff4d9e;
+      --pink-soft: #ff7eb9;
+      --pink-glow: rgba(255, 77, 158, 0.4);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #000000;
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: #000000;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; height: 72px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.1rem; letter-spacing: -0.03em;
+    }
+    .logo img {
+      height: 46px; width: auto;
+      filter: drop-shadow(0 0 10px var(--pink-glow));
+    }
+    .logo span { font-family: 'Great Vibes', cursive; font-size: 1.4rem; color: var(--pink); }
+    .nav-links { display: flex; gap: 1.4rem; list-style: none; flex-wrap: wrap; }
+    .nav-links a { font-size: 0.86rem; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--pink-soft); }
+    .btn {
+      display: inline-flex; padding: 0.65rem 1.25rem; border-radius: 4px;
+      font-weight: 700; font-size: 0.88rem; font-family: 'Space Grotesk', sans-serif;
+      border: 1px solid #333; background: transparent; color: #fff; transition: all 0.2s;
+    }
+    .btn:hover { border-color: var(--pink); color: var(--pink-soft); }
+
+    .page-hero {
+      padding: 4rem 0 3rem; text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: #000000;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,77,158,0.08), transparent);
+      pointer-events: none;
+    }
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; color: var(--pink-soft);
+      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+    }
+    .page-hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.03em;
+    }
+    .signature { font-family: 'Great Vibes', cursive; color: var(--pink); }
+    .page-hero p { color: var(--muted); margin-top: 0.5rem; font-size: 1.05rem; }
+
+    section { padding: 3.5rem 0; background: #000000; }
+
+    .prospects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .prospect-card {
+      background: #000000;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .prospect-card:hover {
+      border-color: rgba(255,77,158,0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(255,77,158,0.12);
+    }
+    .prospect-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--pink), transparent);
+      opacity: 0.7;
+    }
+    .prospect-pos {
+      display: inline-block;
+      font-size: 0.68rem; font-weight: 700;
+      color: var(--pink);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      background: rgba(255,77,158,0.1);
+      border: 1px solid rgba(255,77,158,0.25);
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 0.85rem;
+    }
+    .prospect-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+    .prospect-team {
+      font-size: 0.85rem; color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+    .prospect-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+    }
+    .stat-box {
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 0.7rem 0.4rem;
+      text-align: center;
+    }
+    .stat-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.25rem;
+      color: var(--pink);
+    }
+    .stat-lbl {
+      font-size: 0.65rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.04em;
+      margin-top: 0.15rem;
+    }
+    .prospect-note {
+      margin-top: 1rem;
+      font-size: 0.8rem; color: var(--muted);
+      border-top: 1px solid #1a1a1a;
+      padding-top: 0.85rem;
+    }
+
+    footer {
+      background: #000000; color: var(--muted);
+      padding: 2.5rem 0 1.6rem; font-size: 0.84rem;
+      border-top: 1px solid var(--border); margin-top: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #fff;
+    }
+    .footer-brand span { color: var(--pink); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <img src="" class="team-logo" alt="Alberta Roughriders">
+        Alberta<span>Roughriders</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="stats.html">Stats</a></li>
+        <li><a href="coaches.html">Coaches</a></li>
+        <li><a href="prospects.html" class="active">Prospects</a></li>
+        <li><a href="highlights.html">Highlights</a></li>
+      </ul>
+      <a href="index.html" class="btn">Back Home</a>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label">Future Roughriders</div>
+      <h1>Team <span class="signature">Prospects</span></h1>
+      <p>U16 players developing under the pink aura</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label" style="margin-bottom:1.25rem">Watch List</div>
+      <div class="prospects-grid">
+
+        <div class="prospect-card">
+          <div class="prospect-pos">Defence · U16AA</div>
+          <div class="prospect-name">Josh Beaupre</div>
+          <div class="prospect-team">U16AA</div>
+          <div class="prospect-stats">
+            <div class="stat-box">
+              <div class="stat-val">8</div>
+              <div class="stat-lbl">GP</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">0</div>
+              <div class="stat-lbl">PTS</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">D</div>
+              <div class="stat-lbl">POS</div>
+            </div>
+          </div>
+          <div class="prospect-note">Steady defensive presence. Building the foundation.</div>
+        </div>
+
+        <div class="prospect-card">
+          <div class="prospect-pos">Forward · U16Shitters</div>
+          <div class="prospect-name">Brady Wobick</div>
+          <div class="prospect-team">U16Shitters</div>
+          <div class="prospect-stats">
+            <div class="stat-box">
+              <div class="stat-val">5</div>
+              <div class="stat-lbl">GP</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">2</div>
+              <div class="stat-lbl">G</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">3</div>
+              <div class="stat-lbl">A</div>
+            </div>
+          </div>
+          <div class="prospect-note">5 points in 5 games. High motor forward with vision.</div>
+        </div>
+
+        <div class="prospect-card">
+          <div class="prospect-pos">Goalie · U16Shitters</div>
+          <div class="prospect-name">Brody Allen</div>
+          <div class="prospect-team">U16Shitters</div>
+          <div class="prospect-stats">
+            <div class="stat-box">
+              <div class="stat-val">3</div>
+              <div class="stat-lbl">GP</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">.400</div>
+              <div class="stat-lbl">SV%</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">5.00</div>
+              <div class="stat-lbl">GAA</div>
+            </div>
+          </div>
+          <div class="prospect-note">3 games · 0 wins. Battling between the pipes.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">Alberta <span>Roughriders</span></div>
+      <div>Black ice · Pink aura · Alberta pride</div>
+      <div style="margin-top:1rem;font-size:0.78rem">© 2026 Alberta Roughriders</div>
+    </div>
+  </footer>
+  <script src="logo.js"></script>
+</body>
+</html>
