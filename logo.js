@@ -1,13 +1,13 @@
-// Alberta Roughriders — real cowboy logo
-(function () {
-  const LOGO = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAABBL0lEQVR42u19d3hVVdb+u/cpt+Wm94QSUigJPVQRiEgV1FGJYncERecT69i+UWCcGeuMBcQ6OlhQg4ooqCiQ0AOkk0AK6fWm3t7OOXv//rgJIoOj4vj7Gut5Ljw3t529117tXe/eBzgv5+W8nJfzcl7OTci5fpBzTgBQ5OWRzV1dfGlFBQcArFmD7/2fnk4QFRX4ndmzNQAghPDzU/9vkpycHIHncOGXfAfPzRV5To7Qr9Tzci4Wwjmn/aubAYC9qDpKZxaz4HJRl9cTYYiOnu6xOrzgoOCM640GonDN6W9p2yKHhCUSs1Gi3ZYvTSnjFZIQ3P297928mWDpUnbecgDxp1oFIUQDAOuBgvmU0sl+xZMgO0U/MRuHqK0tXzjdvjJjfOxC1a8wQgWiaCrTurs/Jnp5jBgctERxusphDr3M1nLS2ltQ0m3QyV9rxFBGCOk4TTkCgP/TiiE/xTIIIcxdXjmDgtzk8yvBTFG79ZIuzuOwHglLGRxp77E2eVpaj+hCgo1gnIEQAoVzYqR6OTzqMsVmtyter8scETGZKdoJVVP9VBBEY2iYQ1N8btXlrXdI7HDUyJFtZ7PG8wo5QxnWYzXzmdv7Z0ESd+r1xkyfz/ON2WT4hA4fWss5/6kuT+8uqY7gBrJA9qh6mHST3XYn0RtNNQQ8Hno9525vrc/v/zxkQnrNgGUuXbqU/19SzI8qxNrQEMw6nP9gHv8hSEKyfkjsOvPg2GOnZVoCAL558+Z/+vxSAIEMazZIFlHP+G7ZWVJ+AfP556mqGhMcEtqpSqJBknUtHDwGbteXUsaI3f/XLIb8q7SWEMLbc4uHSiHG54mmtoVnmh8gZLCHcy4C0H6urz+VKm/eDJKdrQ383drUFC52267w+XxjTMHmcCbLPdzpMnrsdkUnG3LM08bnAQDPyRH+twf/Hw3q3OXm3CTbeZ/9ECHpHp6bK65Zs4atXbv2Z09K/0Rq38uw8kDJYNIL4E0AcB2rnOTt7l1skiSTMTLKK5j0S32V9Vd6vK7tZFzG1wOKOV2h/ycUQgjhPCdHwCXTLdZDJYQHG27o2nfESC6c/PpARrRmzRq+du3ac3Yj/S6Icc5JXl6ekJeXx0yjRxwFcNS2/8hwnSBcpXi8I4gsHoHC5vftPTIdwcFvk3Ej6vutjfxvc2P/OoasXk3J2rWse+feUYwIv6c6nSwEB1G9wfiYIXXwyYEiD11dHL8w+J5yZwBBRQUlGRl+AOjatX+4YNDdRyl1ECK0cWhjmV/dHX7hlI3/G63lJ6e93TvzR0lhpnWyIBo1cJESstVg1r1Lhg1rPPXenBwBUVFkTV4eW7NmDf8hmOQ72AXkzGD/Q9J3qPAKzrQlRKDHGSehYJrZHB6";
-  function apply() {
-    document.querySelectorAll("img.team-logo, img[alt*=\"Roughriders\"]").forEach(function (img) {
-      if (!img.src || img.src.indexOf("data:image") === -1) {
-        img.src = LOGO;
+// Alberta Roughriders logo
+(function(){
+  var L="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'><defs><filter id='glow' x='-50%' y='-50%' width='200%' height='200%'><feGaussianBlur stdDeviation='2.5' result='coloredBlur'/><feMerge><feMergeNode in='coloredBlur'/><feMergeNode in='SourceGraphic'/></feMerge></filter></defs><ellipse cx='52' cy='62' rx='28' ry='16' fill='%231a1a1a' stroke='%23ff4d9e' stroke-width='1.5'/><path d='M35 55 Q28 40 32 28 Q36 22 42 28 L45 48 Z' fill='%231a1a1a' stroke='%23ff4d9e' stroke-width='1.5'/><circle cx='48' cy='32' r='7' fill='%23ff4d9e'/><path d='M42 38 L54 38 L52 55 L44 55 Z' fill='%23ff4d9e'/><circle cx='68' cy='28' r='12' fill='none' stroke='%23ff4d9e' stroke-width='2' stroke-dasharray='3 2' filter='url(%23glow)'/><path d='M38 72 L36 88 M48 74 L50 90 M58 72 L62 88 M66 70 L72 85' stroke='%23ff4d9e' stroke-width='2.5' stroke-linecap='round'/></svg>";
+  function a(){
+    document.querySelectorAll("img.team-logo,img[alt*=Roughriders]").forEach(function(i){
+      if(!i.getAttribute("data-fixed")){
+        i.src=L;
+        i.setAttribute("data-fixed","1");
       }
     });
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", apply);
-  else apply();
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",a);else a();
 })();
