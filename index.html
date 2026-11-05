@@ -98,10 +98,10 @@
     .logo span { color: var(--pink); }
 
     .nav-links {
-      display: flex; gap: 1.8rem; list-style: none;
+      display: flex; gap: 1.4rem; list-style: none; flex-wrap: wrap;
     }
     .nav-links a {
-      font-size: 0.9rem; font-weight: 600; color: var(--muted);
+      font-size: 0.88rem; font-weight: 600; color: var(--muted);
       transition: color 0.2s;
     }
     .nav-links a:hover, .nav-links a.active { color: var(--pink); }
@@ -295,13 +295,15 @@
   <header>
     <div class="container nav">
       <a href="index.html" class="logo">
-        <img src="" class="team-logo" alt="Alberta Roughriders">
+        <img src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/256.avif" class="team-logo" alt="Alberta Roughriders">
         Alberta<span>Roughriders</span>
       </a>
       <ul class="nav-links">
+        <li><a href="marvin.html">Marvin</a></li>
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="stats.html">Stats</a></li>
         <li><a href="coaches.html">Coaches</a></li>
+        <li><a href="prospects.html">Prospects</a></li>
         <li><a href="highlights.html">Highlights</a></li>
       </ul>
       <a href="stats.html" class="btn btn-primary">View Stats</a>
@@ -316,12 +318,13 @@
           <path d="M30 100 Q50 30 100 40 Q150 50 170 100 Q150 150 100 160 Q50 170 30 100" />
           <path class="delay" d="M40 100 Q60 50 100 55 Q140 60 160 100 Q140 140 100 145 Q60 150 40 100" />
         </svg>
-        <img src="" class="team-logo" alt="Alberta Roughriders logo">
+        <img src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/256.avif" class="team-logo" alt="Alberta Roughriders logo">
       </div>
       <h1 class="reveal reveal-delay-1">Alberta <span class="pink">Roughriders</span></h1>
       <p class="lead reveal reveal-delay-2">Black ice. Pink aura. Cowboy grit. The official home of Alberta's toughest squad.</p>
       <div class="hero-ctas reveal reveal-delay-2">
         <a href="stats.html" class="btn btn-primary btn-lg">Player Stats</a>
+        <a href="prospects.html" class="btn btn-outline btn-lg">Prospects</a>
         <a href="highlights.html" class="btn btn-outline btn-lg">Highlights</a>
       </div>
     </div>
@@ -375,11 +378,12 @@
   <section class="final-cta">
     <div class="container">
       <h2 class="reveal">Ready for the next shift?</h2>
-      <p class="reveal">Check the stats, meet the coaches, or catch the highlights.</p>
+      <p class="reveal">Check the stats, meet Marvin, or catch the highlights.</p>
       <div class="hero-ctas reveal">
         <a href="stats.html" class="btn btn-primary btn-lg">Stats</a>
+        <a href="marvin.html" class="btn btn-outline btn-lg">Marvin</a>
+        <a href="prospects.html" class="btn btn-outline btn-lg">Prospects</a>
         <a href="coaches.html" class="btn btn-outline btn-lg">Coaches</a>
-        <a href="highlights.html" class="btn btn-outline btn-lg">YouTube</a>
       </div>
     </div>
   </section>
@@ -406,6 +410,6 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(r => io.observe(r));
   </script>
-  <script src="logo.js"></script>
+  <script src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/logo.js"></script>
 </body>
 </html>
