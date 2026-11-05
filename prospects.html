@@ -14,7 +14,7 @@
     header{position:sticky;top:0;z-index:100;background:#000;border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
     .logo{display:flex;align-items:center;gap:.7rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem}
-    .logo img{height:46px;filter:drop-shadow(0 0 10px var(--pink-glow))}
+    .logo img{height:46px;filter:drop-shadow(0 0 10px var(--pink-glow));background:transparent}
     .logo span{font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--pink)}
     .nav-links{display:flex;gap:1.2rem;list-style:none;flex-wrap:wrap}
     .nav-links a{font-size:.86rem;color:var(--muted)}.nav-links a:hover,.nav-links a.active{color:var(--pink-soft)}
@@ -44,109 +44,29 @@
     .prospect-note a{color:var(--pink-soft)}
     footer{background:#000;color:var(--muted);padding:2.5rem 0 1.6rem;font-size:.84rem;border-top:1px solid var(--border);margin-top:1rem}
     .footer-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff}.footer-brand span{color:var(--pink)}
-
-    /* ========== HORROR JUMPSCARE ========== */
-    #jumpscare{
-      position:fixed;inset:0;z-index:99999;
-      background:#000;
-      display:flex;align-items:center;justify-content:center;
-      opacity:0;pointer-events:none;
-      overflow:hidden;
-    }
+    #jumpscare{position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;overflow:hidden}
     #jumpscare.active{opacity:1;pointer-events:auto}
     #jumpscare.flash{animation:redFlash .08s steps(2) 4}
-    @keyframes redFlash{
-      0%,100%{background:#000}
-      50%{background:#3a0000}
-    }
-    #jumpscare .blood-overlay{
-      position:absolute;inset:0;pointer-events:none;z-index:5;
-      background:
-        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(120,0,0,.55), transparent 55%),
-        radial-gradient(ellipse 60% 40% at 85% 15%, rgba(90,0,0,.45), transparent 50%),
-        radial-gradient(ellipse 100% 30% at 50% 100%, rgba(80,0,0,.5), transparent 60%),
-        linear-gradient(180deg, rgba(40,0,0,.3) 0%, transparent 40%, rgba(20,0,0,.4) 100%);
-      opacity:0;
-    }
+    @keyframes redFlash{0%,100%{background:#000}50%{background:#3a0000}}
+    #jumpscare .blood-overlay{position:absolute;inset:0;pointer-events:none;z-index:5;background:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(120,0,0,.55),transparent 55%),radial-gradient(ellipse 60% 40% at 85% 15%,rgba(90,0,0,.45),transparent 50%),radial-gradient(ellipse 100% 30% at 50% 100%,rgba(80,0,0,.5),transparent 60%),linear-gradient(180deg,rgba(40,0,0,.3) 0%,transparent 40%,rgba(20,0,0,.4) 100%);opacity:0}
     #jumpscare.active .blood-overlay{opacity:1;animation:bloodDrip 1.2s ease-out forwards}
-    @keyframes bloodDrip{
-      0%{opacity:0;transform:translateY(-8%)}
-      30%{opacity:1}
-      100%{opacity:1;transform:translateY(0)}
-    }
-    #jumpscare .vignette{
-      position:absolute;inset:0;z-index:6;pointer-events:none;
-      background:radial-gradient(ellipse at center, transparent 25%, #000 85%);
-      opacity:0;
-    }
+    @keyframes bloodDrip{0%{opacity:0;transform:translateY(-8%)}30%{opacity:1}100%{opacity:1;transform:translateY(0)}}
+    #jumpscare .vignette{position:absolute;inset:0;z-index:6;pointer-events:none;background:radial-gradient(ellipse at center,transparent 25%,#000 85%);opacity:0}
     #jumpscare.active .vignette{opacity:1}
-    #jumpscare .face-wrap{
-      position:relative;z-index:3;
-      width:100vw;height:100vh;
-      display:flex;align-items:center;justify-content:center;
-      transform:translateY(110vh) scale(0.2);
-    }
+    #jumpscare .face-wrap{position:relative;z-index:3;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;transform:translateY(110vh) scale(0.2)}
     #jumpscare.rush .face-wrap{animation:rushFace .28s cubic-bezier(.2,.9,.3,1.2) forwards}
-    #jumpscare.hold .face-wrap{
-      transform:translateY(0) scale(1.35);
-      animation:horrorShake .07s linear infinite;
-    }
+    #jumpscare.hold .face-wrap{transform:translateY(0) scale(1.35);animation:horrorShake .07s linear infinite}
     #jumpscare.walk .face-wrap{animation:creepAway 2.4s ease-in forwards}
-    @keyframes rushFace{
-      0%{transform:translateY(110vh) scale(.15);filter:blur(12px)}
-      60%{transform:translateY(-4%) scale(1.45);filter:blur(0)}
-      100%{transform:translateY(0) scale(1.35);filter:blur(0)}
-    }
-    @keyframes horrorShake{
-      0%{transform:translate(0,0) scale(1.35) rotate(-1.5deg)}
-      25%{transform:translate(-12px,6px) scale(1.38) rotate(1deg)}
-      50%{transform:translate(14px,-5px) scale(1.32) rotate(-2deg)}
-      75%{transform:translate(-8px,8px) scale(1.4) rotate(1.5deg)}
-      100%{transform:translate(6px,-3px) scale(1.35) rotate(-1deg)}
-    }
-    @keyframes creepAway{
-      0%{transform:translateY(0) scale(1.35);opacity:1}
-      25%{transform:translateY(-5%) scale(1.1) rotate(-3deg);opacity:1}
-      70%{transform:translateY(-15%) scale(.55) translateX(15vw) rotate(4deg);opacity:.6}
-      100%{transform:translateY(-25%) scale(.2) translateX(40vw);opacity:0}
-    }
-    #jumpscare img.face{
-      width:min(100vw, 1100px);
-      height:min(100vh, 1100px);
-      object-fit:cover;
-      /* horror: B&W + contrast + red tint */
-      filter: grayscale(1) contrast(1.55) brightness(0.85) sepia(.25) saturate(0);
-      box-shadow:0 0 80px rgba(180,0,0,.6), inset 0 0 60px rgba(0,0,0,.8);
-      border:none;border-radius:0;
-    }
-    #jumpscare .blood-splatter{
-      position:absolute;z-index:4;pointer-events:none;
-      width:100%;height:100%;
-      background-image:
-        radial-gradient(circle at 30% 25%, rgba(160,0,0,.7) 0 4px, transparent 5px),
-        radial-gradient(circle at 70% 20%, rgba(140,0,0,.65) 0 6px, transparent 7px),
-        radial-gradient(circle at 50% 40%, rgba(180,0,0,.5) 0 3px, transparent 4px),
-        radial-gradient(circle at 20% 60%, rgba(120,0,0,.6) 0 8px, transparent 10px),
-        radial-gradient(circle at 80% 55%, rgba(150,0,0,.55) 0 5px, transparent 6px),
-        radial-gradient(circle at 45% 75%, rgba(100,0,0,.5) 0 7px, transparent 9px);
-      opacity:0;
-    }
+    @keyframes rushFace{0%{transform:translateY(110vh) scale(.15);filter:blur(12px)}60%{transform:translateY(-4%) scale(1.45);filter:blur(0)}100%{transform:translateY(0) scale(1.35);filter:blur(0)}}
+    @keyframes horrorShake{0%{transform:translate(0,0) scale(1.35) rotate(-1.5deg)}25%{transform:translate(-12px,6px) scale(1.38) rotate(1deg)}50%{transform:translate(14px,-5px) scale(1.32) rotate(-2deg)}75%{transform:translate(-8px,8px) scale(1.4) rotate(1.5deg)}100%{transform:translate(6px,-3px) scale(1.35) rotate(-1deg)}}
+    @keyframes creepAway{0%{transform:translateY(0) scale(1.35);opacity:1}25%{transform:translateY(-5%) scale(1.1) rotate(-3deg);opacity:1}70%{transform:translateY(-15%) scale(.55) translateX(15vw) rotate(4deg);opacity:.6}100%{transform:translateY(-25%) scale(.2) translateX(40vw);opacity:0}}
+    #jumpscare img.face{width:min(100vw,1100px);height:min(100vh,1100px);object-fit:cover;filter:grayscale(1) contrast(1.55) brightness(0.85) sepia(.25) saturate(0);box-shadow:0 0 80px rgba(180,0,0,.6);border:none;border-radius:0}
+    #jumpscare .blood-splatter{position:absolute;z-index:4;pointer-events:none;width:100%;height:100%;background-image:radial-gradient(circle at 30% 25%,rgba(160,0,0,.7) 0 4px,transparent 5px),radial-gradient(circle at 70% 20%,rgba(140,0,0,.65) 0 6px,transparent 7px),radial-gradient(circle at 50% 40%,rgba(180,0,0,.5) 0 3px,transparent 4px),radial-gradient(circle at 20% 60%,rgba(120,0,0,.6) 0 8px,transparent 10px),radial-gradient(circle at 80% 55%,rgba(150,0,0,.55) 0 5px,transparent 6px),radial-gradient(circle at 45% 75%,rgba(100,0,0,.5) 0 7px,transparent 9px);opacity:0}
     #jumpscare.active .blood-splatter{opacity:1;animation:splatterIn .4s ease-out}
     @keyframes splatterIn{from{opacity:0;transform:scale(1.3)}to{opacity:1;transform:scale(1)}}
-    #jumpscare .glitch{
-      position:absolute;inset:0;z-index:7;pointer-events:none;
-      background:repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,.15) 2px,
-        rgba(0,0,0,.15) 4px
-      );
-      opacity:0;
-    }
-    #jumpscare.hold .glitch{opacity:.7;animation:scan 0.15s linear infinite}
+    #jumpscare .glitch{position:absolute;inset:0;z-index:7;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.15) 2px,rgba(0,0,0,.15) 4px);opacity:0}
+    #jumpscare.hold .glitch{opacity:.7;animation:scan .15s linear infinite}
     @keyframes scan{0%{transform:translateY(0)}100%{transform:translateY(8px)}}
-
     @media(max-width:768px){.nav-links{display:none}}
   </style>
 </head>
@@ -160,7 +80,6 @@
       <img class="face" src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/tegan.jpg" alt="">
     </div>
   </div>
-
   <header>
     <div class="container nav">
       <a href="index.html" class="logo">
@@ -243,65 +162,10 @@
       <div style="margin-top:1rem;font-size:.78rem">© 2026 Alberta Roughriders</div>
     </div>
   </footer>
-
+  <script src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/jumpscare.js"></script>
   <script>
-  (function(){
-    var layer = document.getElementById('jumpscare');
-    function scream(){
-      try{
-        var ctx = new (window.AudioContext||window.webkitAudioContext)();
-        var t = ctx.currentTime;
-        // deep boom
-        var o1 = ctx.createOscillator();
-        var g1 = ctx.createGain();
-        o1.type = 'sawtooth';
-        o1.frequency.setValueAtTime(90, t);
-        o1.frequency.exponentialRampToValueAtTime(25, t + 0.6);
-        g1.gain.setValueAtTime(0.0001, t);
-        g1.gain.exponentialRampToValueAtTime(0.7, t + 0.03);
-        g1.gain.exponentialRampToValueAtTime(0.0001, t + 0.7);
-        o1.connect(g1); g1.connect(ctx.destination);
-        o1.start(t); o1.stop(t + 0.72);
-        // harsh scream layer
-        var o2 = ctx.createOscillator();
-        var g2 = ctx.createGain();
-        o2.type = 'square';
-        o2.frequency.setValueAtTime(420, t);
-        o2.frequency.exponentialRampToValueAtTime(80, t + 0.5);
-        g2.gain.setValueAtTime(0.0001, t);
-        g2.gain.exponentialRampToValueAtTime(0.35, t + 0.02);
-        g2.gain.exponentialRampToValueAtTime(0.0001, t + 0.55);
-        o2.connect(g2); g2.connect(ctx.destination);
-        o2.start(t); o2.stop(t + 0.56);
-        // noise burst via high osc
-        var o3 = ctx.createOscillator();
-        var g3 = ctx.createGain();
-        o3.type = 'sawtooth';
-        o3.frequency.setValueAtTime(800, t + 0.05);
-        o3.frequency.linearRampToValueAtTime(60, t + 0.35);
-        g3.gain.setValueAtTime(0.25, t + 0.05);
-        g3.gain.exponentialRampToValueAtTime(0.0001, t + 0.4);
-        o3.connect(g3); g3.connect(ctx.destination);
-        o3.start(t + 0.05); o3.stop(t + 0.42);
-      }catch(e){}
-    }
-    function run(){
-      layer.classList.add('active','flash','rush');
-      scream();
-      setTimeout(function(){
-        layer.classList.remove('rush','flash');
-        layer.classList.add('hold');
-      }, 300);
-      setTimeout(function(){
-        layer.classList.remove('hold');
-        layer.classList.add('walk');
-      }, 1100);
-      setTimeout(function(){
-        layer.classList.remove('active','walk');
-      }, 3600);
-    }
-    setTimeout(run, 250);
-  })();
+    if (window.RoughridersJumpscare) RoughridersJumpscare('jumpscare');
+    else setTimeout(function(){ if (window.RoughridersJumpscare) RoughridersJumpscare('jumpscare'); }, 400);
   </script>
 </body>
 </html>
