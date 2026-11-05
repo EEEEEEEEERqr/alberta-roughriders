@@ -4,188 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coaches | Alberta Roughriders</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #000000;
-      --border: #1a1a1a;
-      --text: #ffffff;
-      --muted: #888888;
-      --pink: #ff4d9e;
-      --pink-soft: #ff7eb9;
-      --pink-glow: rgba(255, 77, 158, 0.4);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: #000000;
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { text-decoration: none; color: inherit; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-
-    header {
-      position: sticky; top: 0; z-index: 100;
-      background: #000000;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav {
-      display: flex; align-items: center; justify-content: space-between; height: 72px;
-    }
-    .logo {
-      display: flex; align-items: center; gap: 0.7rem;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700; font-size: 1.1rem; letter-spacing: -0.03em;
-    }
-    .logo img {
-      height: 46px; width: auto;
-      filter: drop-shadow(0 0 10px var(--pink-glow));
-    }
-    .logo span { font-family: 'Great Vibes', cursive; font-size: 1.4rem; color: var(--pink); }
-    .nav-links { display: flex; gap: 1.4rem; list-style: none; flex-wrap: wrap; }
-    .nav-links a { font-size: 0.86rem; color: var(--muted); transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--pink-soft); }
-    .btn {
-      display: inline-flex; padding: 0.65rem 1.25rem; border-radius: 4px;
-      font-weight: 700; font-size: 0.88rem; font-family: 'Space Grotesk', sans-serif;
-      border: 1px solid #333; background: transparent; color: #fff; transition: all 0.2s;
-    }
-    .btn:hover { border-color: var(--pink); color: var(--pink-soft); }
-
-    .page-hero {
-      padding: 4rem 0 3rem; text-align: center;
-      border-bottom: 1px solid var(--border);
-      background: #000000;
-      position: relative; overflow: hidden;
-    }
-    .page-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,77,158,0.08), transparent);
-      pointer-events: none;
-    }
-    .section-label {
-      font-size: 0.72rem; font-weight: 600; color: var(--pink-soft);
-      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
-    }
-    .page-hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.03em;
-    }
-    .signature { font-family: 'Great Vibes', cursive; color: var(--pink); }
-    .page-hero p { color: var(--muted); margin-top: 0.5rem; font-size: 1.05rem; }
-
-    section { padding: 3.5rem 0; background: #000000; }
-
-    .head-featured {
-      background: linear-gradient(135deg, rgba(255,77,158,0.06) 0%, transparent 60%);
-      border: 1px solid rgba(255,77,158,0.25);
-      border-radius: 12px;
-      padding: 2.5rem 2rem;
-      display: flex; align-items: center; gap: 2rem;
-      margin-bottom: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .head-featured::after {
-      content: '';
-      position: absolute; top: -40%; right: -10%;
-      width: 280px; height: 280px;
-      background: radial-gradient(circle, rgba(255,77,158,0.12), transparent 70%);
-      pointer-events: none;
-    }
-    .head-avatar {
-      width: 100px; height: 100px; border-radius: 50%;
-      background: #0a0a0a;
-      border: 2px solid var(--pink);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.4rem;
-      flex-shrink: 0;
-      box-shadow: 0 0 24px var(--pink-glow);
-      overflow: hidden;
-    }
-    .head-info { position: relative; z-index: 1; }
-    .head-role {
-      font-size: 0.75rem; font-weight: 700; color: var(--pink);
-      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem;
-    }
-    .head-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .head-desc {
-      color: var(--muted); margin-top: 0.5rem; font-size: 0.95rem; max-width: 420px;
-    }
-
-    .staff-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-    .staff-card {
-      background: #000000;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.6rem 1.4rem;
-      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-      position: relative;
-    }
-    .staff-card:hover {
-      border-color: rgba(255,77,158,0.45);
-      transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(255,77,158,0.12);
-    }
-    .staff-icon {
-      width: 48px; height: 48px; border-radius: 10px;
-      background: rgba(255,77,158,0.08);
-      border: 1px solid rgba(255,77,158,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.35rem; margin-bottom: 1rem;
-      overflow: hidden;
-    }
-    .staff-icon img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .staff-role {
-      font-size: 0.7rem; font-weight: 600; color: var(--pink);
-      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.35rem;
-    }
-    .staff-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em;
-    }
-
-    .marvin-card {
-      border: 1px solid rgba(255,77,158,0.35);
-      background: linear-gradient(160deg, rgba(255,77,158,0.07) 0%, transparent 55%);
-    }
-    .marvin-card .staff-icon {
-      width: 64px; height: 64px;
-      border-radius: 50%;
-      border: 2px solid var(--pink);
-      box-shadow: 0 0 16px var(--pink-glow);
-    }
-
-    footer {
-      background: #000000; color: var(--muted);
-      padding: 2.5rem 0 1.6rem; font-size: 0.84rem;
-      border-top: 1px solid var(--border); margin-top: 1rem;
-    }
-    .footer-brand {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #fff;
-    }
-    .footer-brand span { color: var(--pink); }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .head-featured { flex-direction: column; text-align: center; gap: 1.2rem; }
-      .head-desc { margin-left: auto; margin-right: auto; }
-    }
+    :root{--bg:#000;--border:#1a1a1a;--text:#fff;--muted:#888;--pink:#ff4d9e;--pink-soft:#ff7eb9;--pink-glow:rgba(255,77,158,.4)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,system-ui,sans-serif;background:#000;color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+    header{position:sticky;top:0;z-index:100;background:#000;border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo{display:flex;align-items:center;gap:.7rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem}
+    .logo img{height:46px;filter:drop-shadow(0 0 10px var(--pink-glow))}
+    .logo span{font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--pink)}
+    .nav-links{display:flex;gap:1.4rem;list-style:none;flex-wrap:wrap}
+    .nav-links a{font-size:.86rem;color:var(--muted)}.nav-links a:hover,.nav-links a.active{color:var(--pink-soft)}
+    .btn{display:inline-flex;padding:.65rem 1.25rem;border-radius:4px;font-weight:700;font-size:.88rem;font-family:'Space Grotesk',sans-serif;border:1px solid #333;background:transparent;color:#fff}
+    .btn:hover{border-color:var(--pink);color:var(--pink-soft)}
+    .page-hero{padding:4rem 0 3rem;text-align:center;border-bottom:1px solid var(--border);background:#000;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(255,77,158,.08),transparent);pointer-events:none}
+    .section-label{font-size:.72rem;font-weight:600;color:var(--pink-soft);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.6rem}
+    .page-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,5vw,3rem);font-weight:700}
+    .signature{font-family:'Great Vibes',cursive;color:var(--pink)}
+    .page-hero p{color:var(--muted);margin-top:.5rem}
+    section{padding:3.5rem 0;background:#000}
+    .head-featured{background:linear-gradient(135deg,rgba(255,77,158,.06) 0%,transparent 60%);border:1px solid rgba(255,77,158,.25);border-radius:12px;padding:2.5rem 2rem;display:flex;align-items:center;gap:2rem;margin-bottom:2rem;position:relative;overflow:hidden}
+    .head-avatar{width:100px;height:100px;border-radius:50%;background:#0a0a0a;border:2px solid var(--pink);display:flex;align-items:center;justify-content:center;font-size:2.4rem;flex-shrink:0;box-shadow:0 0 24px var(--pink-glow)}
+    .head-role{font-size:.75rem;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+    .head-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:700}
+    .head-desc{color:var(--muted);margin-top:.5rem;font-size:.95rem;max-width:420px}
+    .staff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .staff-card{background:#000;border:1px solid var(--border);border-radius:10px;padding:1.6rem 1.4rem;transition:border-color .25s,transform .25s,box-shadow .25s}
+    .staff-card:hover{border-color:rgba(255,77,158,.45);transform:translateY(-4px);box-shadow:0 8px 28px rgba(255,77,158,.12)}
+    .staff-icon{width:48px;height:48px;border-radius:10px;background:rgba(255,77,158,.08);border:1px solid rgba(255,77,158,.2);display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:1rem;overflow:hidden}
+    .staff-icon img{width:100%;height:100%;object-fit:cover}
+    .staff-role{font-size:.7rem;font-weight:600;color:var(--pink);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem}
+    .staff-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem}
+    .marvin-card{border:1px solid rgba(255,77,158,.35);background:linear-gradient(160deg,rgba(255,77,158,.07) 0%,transparent 55%)}
+    .marvin-card .staff-icon{width:72px;height:72px;border-radius:50%;border:2px solid var(--pink);box-shadow:0 0 16px var(--pink-glow)}
+    footer{background:#000;color:var(--muted);padding:2.5rem 0 1.6rem;font-size:.84rem;border-top:1px solid var(--border);margin-top:1rem}
+    .footer-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff}.footer-brand span{color:var(--pink)}
+    @media(max-width:768px){.nav-links{display:none}.head-featured{flex-direction:column;text-align:center}}
   </style>
 </head>
 <body>
@@ -205,7 +63,6 @@
       <a href="index.html" class="btn">Back Home</a>
     </div>
   </header>
-
   <section class="page-hero">
     <div class="container">
       <div class="section-label">Behind the Bench</div>
@@ -213,7 +70,6 @@
       <p>The people driving the pink aura</p>
     </div>
   </section>
-
   <section>
     <div class="container">
       <div class="head-featured">
@@ -224,51 +80,26 @@
           <p class="head-desc">Leading the Alberta Roughriders with intensity, structure, and that cowboy mentality.</p>
         </div>
       </div>
-
       <div class="section-label" style="margin-bottom:1rem">Coaching Staff & Manager</div>
       <div class="staff-grid">
-        <div class="staff-card">
-          <div class="staff-icon">📋</div>
-          <div class="staff-role">Assistant Coach</div>
-          <div class="staff-name">Matt Burton</div>
-        </div>
-        <div class="staff-card">
-          <div class="staff-icon">📋</div>
-          <div class="staff-role">Assistant Coach</div>
-          <div class="staff-name">Cory McNabb</div>
-        </div>
-        <div class="staff-card">
-          <div class="staff-icon">📋</div>
-          <div class="staff-role">Assistant Coach</div>
-          <div class="staff-name">Jeremy Pierzchala</div>
-        </div>
-        <div class="staff-card">
-          <div class="staff-icon">📋</div>
-          <div class="staff-role">Assistant Coach</div>
-          <div class="staff-name">Joe Roberts</div>
-        </div>
-        <div class="staff-card">
-          <div class="staff-icon">🗂️</div>
-          <div class="staff-role">Manager</div>
-          <div class="staff-name">Bailey Kado</div>
-        </div>
-
+        <div class="staff-card"><div class="staff-icon">📋</div><div class="staff-role">Assistant Coach</div><div class="staff-name">Matt Burton</div></div>
+        <div class="staff-card"><div class="staff-icon">📋</div><div class="staff-role">Assistant Coach</div><div class="staff-name">Cory McNabb</div></div>
+        <div class="staff-card"><div class="staff-icon">📋</div><div class="staff-role">Assistant Coach</div><div class="staff-name">Jeremy Pierzchala</div></div>
+        <div class="staff-card"><div class="staff-icon">📋</div><div class="staff-role">Assistant Coach</div><div class="staff-name">Joe Roberts</div></div>
+        <div class="staff-card"><div class="staff-icon">🗂️</div><div class="staff-role">Manager</div><div class="staff-name">Bailey Kado</div></div>
         <div class="staff-card marvin-card">
-          <div class="staff-icon">
-            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAA8ADwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//2Q==" alt="Marvin Wobick">
-          </div>
+          <div class="staff-icon"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABZAEADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//2Q==" alt="Marvin Wobick"></div>
           <div class="staff-role">Staff</div>
           <div class="staff-name">Marvin Wobick</div>
         </div>
       </div>
     </div>
   </section>
-
   <footer>
     <div class="container">
       <div class="footer-brand">Alberta <span>Roughriders</span></div>
       <div>Black ice · Pink aura · Alberta pride</div>
-      <div style="margin-top:1rem;font-size:0.78rem">© 2026 Alberta Roughriders</div>
+      <div style="margin-top:1rem;font-size:.78rem">© 2026 Alberta Roughriders</div>
     </div>
   </footer>
   <script src="logo.js"></script>
