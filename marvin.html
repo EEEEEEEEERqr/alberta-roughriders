@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marvin Wobick — Mascot | Alberta Roughriders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#000;--border:#1a1a1a;--text:#fff;--muted:#888;--pink:#ff4d9e;--pink-soft:#ff7eb9;--pink-glow:rgba(255,77,158,.4)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,system-ui,sans-serif;background:#000;color:var(--text);line-height:1.65}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:900px;margin:0 auto;padding:0 1.5rem}
+    header{position:sticky;top:0;z-index:100;background:#000;border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo{display:flex;align-items:center;gap:.7rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem}
+    .logo img{height:46px;filter:drop-shadow(0 0 10px var(--pink-glow))}
+    .logo span{font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--pink)}
+    .nav-links{display:flex;gap:1.2rem;list-style:none;flex-wrap:wrap}
+    .nav-links a{font-size:.86rem;color:var(--muted)}.nav-links a:hover,.nav-links a.active{color:var(--pink-soft)}
+    .btn{display:inline-flex;padding:.65rem 1.25rem;border-radius:4px;font-weight:700;font-size:.88rem;font-family:'Space Grotesk',sans-serif;border:1px solid #333;background:transparent;color:#fff}
+    .btn:hover{border-color:var(--pink);color:var(--pink-soft)}
+    .page-hero{padding:3.5rem 0 2.5rem;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(255,77,158,.1),transparent);pointer-events:none}
+    .section-label{font-size:.72rem;font-weight:600;color:var(--pink-soft);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem}
+    .page-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,2.8rem);font-weight:700}
+    .signature{font-family:'Great Vibes',cursive;color:var(--pink)}
+    .dates{color:var(--muted);margin-top:.4rem;font-size:.95rem}
+    section{padding:2.75rem 0;background:#000}
+    .portrait-wrap{display:flex;justify-content:center;margin-bottom:2rem}
+    .portrait{width:180px;height:180px;border-radius:50%;overflow:hidden;border:3px solid var(--pink);box-shadow:0 0 28px var(--pink-glow)}
+    .portrait img{width:100%;height:100%;object-fit:cover}
+    .mascot-badge{display:inline-block;margin-top:1rem;font-size:.75rem;font-weight:700;color:#000;background:var(--pink);padding:.35rem .85rem;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
+    .card{background:linear-gradient(145deg,rgba(255,77,158,.06),transparent 55%);border:1px solid rgba(255,77,158,.22);border-radius:14px;padding:1.75rem 1.6rem;margin-bottom:1.25rem}
+    .card h2{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;margin-bottom:.75rem;color:var(--pink-soft)}
+    .card p{color:#ccc;margin-bottom:.85rem}
+    .card p:last-child{margin-bottom:0}
+    .obit-link{color:var(--pink-soft);border-bottom:1px solid rgba(255,77,158,.4)}
+    .obit-link:hover{color:#fff}
+    footer{background:#000;color:var(--muted);padding:2.5rem 0 1.6rem;font-size:.84rem;border-top:1px solid var(--border)}
+    .footer-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff}.footer-brand span{color:var(--pink)}
+    /* JUMPSCARE */
+    #jumpscare{position:fixed;inset:0;z-index:9999;background:#000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none}
+    #jumpscare.active{opacity:1;pointer-events:auto}
+    #jumpscare img{width:min(90vw,420px);height:auto;border-radius:12px;border:4px solid var(--pink);box-shadow:0 0 60px var(--pink),0 0 120px rgba(255,77,158,.5);transform:translateY(120vh) scale(0.3);animation:none}
+    #jumpscare.rush img{animation:rushIn .35s ease-out forwards}
+    #jumpscare.hold img{transform:translateY(0) scale(1.15);animation:shake .12s infinite}
+    #jumpscare.walk img{animation:walkAway 2.2s ease-in forwards}
+    @keyframes rushIn{0%{transform:translateY(120vh) scale(.3);opacity:0}70%{transform:translateY(-8%) scale(1.25);opacity:1}100%{transform:translateY(0) scale(1.15);opacity:1}}
+    @keyframes shake{0%,100%{transform:translateY(0) scale(1.15) rotate(-2deg)}50%{transform:translateY(0) scale(1.18) rotate(2deg)}}
+    @keyframes walkAway{0%{transform:translateY(0) scale(1.15);opacity:1}40%{transform:translateY(-20%) scale(1);opacity:1}100%{transform:translateY(-40%) scale(.4) translateX(30vw);opacity:0}}
+    @media(max-width:768px){.nav-links{display:none}}
+  </style>
+</head>
+<body>
+  <!-- JUMPSCARE LAYER -->
+  <div id="jumpscare" aria-hidden="true">
+    <img src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/tegan.jpg" alt="">
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <img src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/256.avif" class="team-logo" alt="Alberta Roughriders">
+        Alberta<span>Roughriders</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="marvin.html" class="active">Marvin</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="stats.html">Stats</a></li>
+        <li><a href="coaches.html">Coaches</a></li>
+        <li><a href="prospects.html">Prospects</a></li>
+        <li><a href="highlights.html">Highlights</a></li>
+      </ul>
+      <a href="index.html" class="btn">Home</a>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label">Team Mascot</div>
+      <h1>Marvin <span class="signature">Wobick</span></h1>
+      <p class="dates">July 23, 1925 — July 12, 2017 · Age 91</p>
+      <div class="mascot-badge">Official Mascot · Alberta Roughriders</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="portrait-wrap">
+        <div class="portrait">
+          <img src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/marvin.png" alt="Marvin Wobick">
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Our Mascot</h2>
+        <p>Marvin Wobick is the heart of the Alberta Roughriders. We carry his name and spirit as our mascot — hard work, loyalty, and that old-school Alberta grit that never quits.</p>
+        <p>Every shift, every cheer, every pink aura moment on the ice is a nod to the kind of man Marvin was: steady, tough, and always there for family and community.</p>
+      </div>
+
+      <div class="card">
+        <h2>In Memory</h2>
+        <p>Marvin Robert Wobick passed away on Wednesday, July 12, 2017 at South Health Campus in Calgary at age 91. He was born in Warner, South Dakota to Robert and Mary (Grohnke) Wobick. The family moved to Barons in 1927 to farm in the district.</p>
+        <p>Marv was a hard worker and a man of many talents — he drove semi, worked at a tire factory, built his own house, climbed telephone poles in stormy weather, and farmed from before sunrise to after sundown. He married Alice Huff on March 29, 1950. They raised three children: Brenda Lynn, Patricia Dawn, and Kevin Robert. He curled into his eighties and golfed until the year before he passed.</p>
+        <p>He is remembered by his son Kevin (Donna), grandsons, great-grandchildren including Brady Wobick, his sister Beverly Perry, and many nieces and nephews. He was predeceased by his wife Alice, daughters Brenda and Patty, and grandson Jared.</p>
+        <p style="margin-top:1rem">Full obituary: <a class="obit-link" href="https://www.lethbridgefuneralhome.com/obituary/Marvin-Wobick" target="_blank" rel="noopener">Lethbridge Funeral Home — Marvin Robert Wobick</a></p>
+      </div>
+
+      <div class="card">
+        <h2>Meaning to the Roughriders</h2>
+        <p>We made Marvin our mascot because he represents everything this team stands for: family, grit, and showing up. His great-grandsons and the Wobick name are part of the Roughriders story. When the pink hits the ice, Marvin is with us.</p>
+        <p style="color:var(--muted);font-size:.9rem;margin-bottom:0">Rest easy, Marvin. The Roughriders ride for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">Alberta <span>Roughriders</span></div>
+      <div>Black ice · Pink aura · Alberta pride</div>
+      <div style="margin-top:1rem;font-size:.78rem">© 2026 Alberta Roughriders · In memory of Marvin Wobick</div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var layer = document.getElementById('jumpscare');
+    var img = layer.querySelector('img');
+    function scream(){
+      try{
+        var ctx = new (window.AudioContext||window.webkitAudioContext)();
+        var o = ctx.createOscillator();
+        var g = ctx.createGain();
+        o.type = 'sawtooth';
+        o.frequency.setValueAtTime(180, ctx.currentTime);
+        o.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.45);
+        g.gain.setValueAtTime(0.0001, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.55, ctx.currentTime + 0.04);
+        g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.55);
+        o.connect(g); g.connect(ctx.destination);
+        o.start(); o.stop(ctx.currentTime + 0.56);
+        // second harsh hit
+        setTimeout(function(){
+          var o2 = ctx.createOscillator();
+          var g2 = ctx.createGain();
+          o2.type = 'square';
+          o2.frequency.value = 90;
+          g2.gain.setValueAtTime(0.35, ctx.currentTime);
+          g2.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.25);
+          o2.connect(g2); g2.connect(ctx.destination);
+          o2.start(); o2.stop(ctx.currentTime + 0.26);
+        }, 80);
+      }catch(e){}
+    }
+    function run(){
+      layer.classList.add('active','rush');
+      scream();
+      setTimeout(function(){
+        layer.classList.remove('rush');
+        layer.classList.add('hold');
+      }, 350);
+      setTimeout(function(){
+        layer.classList.remove('hold');
+        layer.classList.add('walk');
+      }, 900);
+      setTimeout(function(){
+        layer.classList.remove('active','walk');
+      }, 3200);
+    }
+    // slight delay so page paints first
+    setTimeout(run, 280);
+  })();
+  </script>
+</body>
+</html>
