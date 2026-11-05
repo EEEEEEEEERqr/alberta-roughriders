@@ -1,17 +1,66 @@
-// Alberta Roughriders — transparent logo (white background removed)
+// Alberta Roughriders — load logo and strip white background
 (function () {
-  var LOGO = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAA8JklEQVR42u19d3xX5b3/+3mec853Z+9NwkwYQsJeiQoCKgpKrHvgbBW1rd4Wqwmt19bWUbcoigUrGFyALCUmjDATQiCBMAJkr2/2d57xPL8/knCjVato7+/2Xj+8eOX7Ss73jM/eB/gJfoKf4Cf4/wbkxzqREOJL5yKEiJ/Q+y8CIQQReXlMCMG+ivh/OE4IKoRgfceTn7D3QxCfl8e+HtE1Fs+pU/HtxeUJnvKqhNbjx2OEEPI3naegoEASQtCfMPodVZAQgvSrlIKcHOmiOVfH2a2WlB7DN1VraClngbZ4OSBwkhCEMcag6f4e4fbs0zo7W8KSkuPdqpcqmlFBHYHNyoiUSkKIPuDcDAD/v6qyyHdFPgHQvnPf1VabbaLb7/eZGO3QTWyCSdcOdtY1OqWQ4BCmSEwIIQzNULnX67EGBAcaJinN5FXLuNWSYiJSdXdPp5XLzBcg2ffJoZbDZNAgHwDk5OTQ3NxcEEL4TwT4CvI7dx0J5sS7lBDip8wsbDLr6e7sqqOBitMcYqtuKa5uDbDahLDpAgCI200QEkLMQUFh7o6eQTaL2QxGR/V0u/TA4KAOVTeiqK67fapqtZksJxVFKSOjhh0fqOpIdjYHIP5vEyAnh1YgTYqYOehJaqLgquAg2o5wu7ydZGRo3/diPXuPRJqCrPEyoSne7s4Ur8drp7IkLIricXm9QhjGnjCHpaj/3H2EMP5PEqD/4Z37Smdzg14tdL3FcJBXYsaNa/2SQV606Bv1txCCYN2688Z2IDJFebnibOgcTcxsisxoqA7CIMCh+usEJ6pkEuuDpk/v6GUEQcmy/52q6dtcSEYIMWq/2He5LLGhRCMbIi/JqCrPy1NGZmerPyBWIL1hAvkvYhw6FN6hYRYFDeVuN9dVVWZWcwQ1Wc8Ipq0Lycjo6vOaxP82Y/1trqAAADOlLRLn0VRSZwFAWvYi7Zvc0X9KbUIEIYT3I1/k5FCRl8fIuHGtIRPHvfdZ9clXCScNlJFISkkHEdzEvcaS1vwdF/d9T1zotf9tbYBz1iwbVLIMgETM5pOhilg+UEd/mwr6zpIBEOTl0f5znS0oMAcwywKhq0MJofUCsBBZjtb92luRl0yrEjk5FADIsmX8fzcB+rwg147iaI/m+6Vstw2FMKqhax9VHTtSlHHPPVo/oQozM2lmYSH/Lkg5r4oKC+m61laxqKJCkGXLBAAhAEL6pK8mL89iD4tZKCDiiEQ8hmaYBEFtxMUz3+8P6LKysvT/E3GAaGy0dVTVXy2EdhkhNJYIcVLT1U3h0RH7yPDhzoHnFDk5pBCgmbm5fKBf3ycx4pt8/Q0bNlgbGxtxzz33eAb+vrWoeDhTfbNABIWkqJwbwUxStgZPyTgkIEhuTi7Jzc0VACgKC0khgMzMTNGnRv/RbhDSS+o+A4+0dQSLFvX/lYMQkP8mF/h7R8I1e/aE2MAuYRxTKGEXWa1m5vX5T+qGekzXfJvDs7Iqv6pe1uXl0ewBHlBtwb64uNi4cB/hU83UfA4ys0OS4gCeDmHA39FT3N7UYo5mEc+i9aDW7z217yy6QhAMJ4KqgotwKHJ9yOSMN/4VwVuvrVkEVOSKf6WqI9/3pga6ku59ZXFWhU1y6/7pfl2dLnEkepta9pttDhvzqftpQsz7tvTRJf2R7v3zF1weZraPQHyU4mnpdBYdLZn5xRf5pwNDgud2dHehtaPNZzGZaVJSYs0d0y+v62nqXDHo2qzKvLw8tqhPcsrLy5XoDtdtlLEgUOIgfs1tpcrnTW7/2dBBETNlnUd2Nzk9ppjQGRBihLezq9TQNZ0QEEIgAApJljgXcJkVs0k2WcK7a1o+tIUHydRhdpk7XJUtdtYZOXKk6x8I0qsq+f83Agz07b8uQBL7j4W21J8Lkm22WEbpoEbFs1OtcHaGpw+bKhtKUpO/y56/b/fwT/I/H9rY0JhAhIjmhkEVxYTIiAh4vF50tLaCmRTnjo82vormtuOhMyas7csXiZpNmwItDscgB5cjSIDEPkS1mL9fF61abPdSnqQuI3TIZhlahdvU0WwIdCaphdBPBNgrOPQAIOAeTTbJksafoPp9bd7mPMybFC0pHUmEcIyZznEKknS7dH2FlzMms9ipfT9spe0DASTJ0qP+8w9DrEv8o+SvpQlxJAMaXAq1Fi4DcXEEmprYBaKsoKdJTQ2JsAYr1fiRo7W3ezuGK1f56fXXL8PqermslQQMlQWM7OjsgSbJhNlsRFRWNBQsW4MSJE+K9vLVhO4t2NVw9eoKpj014m7PNYQsOvtmob7b5HQHhwqJsZYEOK2/vHN/R1bbfYjKV+Zt7ykKd/B7XdVd1fYXLYgr2N3WV9HX1iN7e3n5VVVWnaypqDJqmEQRB4LIs0jRN5HI5KIqinTp1SrhdrsDKysoL/1MOaGxsTGxubrb+LwkB8vLyKJVKFRBFUf6nIkD/wzv3lc7mBr1a6HqL4SCvxIwbs0g2eWOjb9TfQgiCdevOG9uByBTl5YqzoXE3MbIjMaKgOwiDAofrrBCeqZBLrg6ZP7+hlBEHJsv+dqunbXEhGCDFav9h3uSyxoUQjGyIvyagqz8tTRmZmqz8gViC9YQL5L2IcOhTeoWEWBQ3lbjfXVVVmVnMENVnPCKatC8nI6OrzmsT/NmP9ba6gAAAzpS0S59FUUmcBQFr2Iu2b3NH/Sm1CBGGE96Nf5ORQkZfHyLhxrSETx733WfXJVwknDZSRSEpJBxHcxL3Gktb8HRf3fU9c6LX/bW2Ac9YsG1SyDIBEzOaToYpYPlBHf5sK+s6SARDk5dH+c50tKDAHMMsCoatDCaH1ArAQWY7W/dpbkZdMqxI5ORQAyLJl/H83Afq8INeO4miP5vulbLcNhTCqoWsfVR07UpRxzz1aP6EKMzNpZmEh/y5IOa+KCgvpura2saioQpBlywQAIQBC+qSvJi/PYg+LWSgg4ohEPIZmGgRBbcTFM9/vD+iysrL0/xNxgGhstHVU1V8thHYZITSWCHFSU9VN4dER+8jw4c6B5xQ5OaQQoJm5uXygX98nMeKbfP0NGzZYGxsbcc8993gG/r61qHg4U32zQASFpKicG8FMUrYGT8k4JCBIbk4uyc3NFQAoCgtJIYDMzEzRp0b/0W4Q0kvqPgOPtHUEixb1/5WDEJD/Jhf4e0fCNXv2hNjALmEcUyhhF1mtZub1+U/qhnpm13ybw7OyKr+qXtbl5dHsAR5QbcG+uLjYuHAf4VPN1HwOMrNDkuIAng5hwN/RU9ze1GKOZhHPovWg1u89te8sukIQDCeCqoKLcChyfcjkjDf+FcFbr61ZBFTkin+lqiPf96YGupLufWVxVoVNcuv+6X5dnS5xJHqbWvabfQ4b86n7aULM+7b00SX9ke798xdcHma2j0B8lOJp6XQWHS2Z+cUX+acDQ4LndnR3obWjzWcxmWlSUmLNHdMvr+tp6lwx6NqsyrysPLYqT3LKy8uV6A7XbZSxIFDiIH7NbaXK501u/9nQQREzZZ1Hdjg5PaaY0BkQYoS3s6vU0DWdEBBCIAAKSZY4F3CZFbNJNlnCu2taPrSFB8nUYXaZO1yVLXbWGTlypOsfCNKrKvn/NwIM9O2/LkAS+4+FttSfC5JttlhG6aBGxbNTrXB2hqcPmyobSlKTv8uev2/38E/yPx/a2NCYgISI5oZBFcWEyIgIeLxedLS2gpkU546PNr6K5rbjoTMmrO3LF4maTZsCLQ7HIAeXI0gIxD5EtZi/XxetWmz3Up6kLiN0yGYZWoXb1NFsCHQmqYXQTwTYKzj0ACDgHk02yZLGn6D6fW3e5jzMmxQtKR1JhHCMmc5xCpJ0u3R9hZczJrPYqX0/bKXtAwEkydKj/vMPg6xL/KPkr6UJcSQDGlwKtRYuA3FxBJqa2AWirKCnSU0NibAGK9X4kaO1t3s7hitX+en11y/D6nq5rJUEDJUFjOzo7IEmyYTZbERUVjQULFuDEiRPivby1YTuLdjVcPXqCqY9NeJuzzWELDr7ZqG+2+R0B4cJibGWBDitv7xzf0dW232Iylfmbg8pCnfwA0V1VXWFx2IK9jd1lfR19Yje3t5+VVVVp2sqagyaphEEQeCyLNJ0TeRyOSiKgpMnT4l0Oh2By8vLC/9TDmhsbExsbm62/i8JAfLy8iiVShUQRVH+pyJA/8M795XO5ga9Wuh6i+Egr8SMG7NINnljo2/U30IIgnXrzhvbgcgU5eWKs6FxNzGyIzGioDsIgwKH66wQnqmqS64OmT+/oZQRbybL/narp21xIRggxWr/Yd7kssaEYIxsiL8moKs/LU0ZmZqs/IFYgvWEC+S9iHDoU3qFhFgUN5W4311VVZlZzBDVZzwimrQvJyOjq85rE/zZj/W2uoAAAM6UtEufRVFJnAUBa9iLtm9zR/0ptQgRhhPeGXyTkUJGXx8i4ca0hE8e991n1yVcJJw2UkUhKSQcR3MS9xpLW/B0X933PXOi1/21tgHPWLBtUsgYARMzpE6GKWDsQR3+bCvrOkgEQ5OXR/nOdLSgwBzDLAqGrQwih9QKwEFmO1v3aW5GXTKsSOTkUAMiyZfx/NwH6vCDXjuJoj+b7pWy3DYUwqqFrH1UdO1KUcc89Wj+hCjMzaWZhIf8uSDmvigoL6bq2traxqKJCkGXLBAAhAEL6pK8mL89iD4tZKCDiiEQ8hmaYBEFtxMUz3+8P6LKysvT/E3GAaGy0dVTVXy2EdhkhNJYIcVLT1U3h0RH7yPDhzoHnFDk5pBCgmbm5fKBf3ycx4pt8/Q0bNlgbGxtxzz33eAb+vrWoeDhTfbNABIWkqJwbwUxStgZPyTgkIEhuTi7Jzc0VACgKC0khgMzMTNGnRv/RbhDSS+o+A4+0dQSLFvX/lYMQkP8mF/h7R8I1e/aE2MAuYRxTKGEXWa1m5vX5T+qGekzXfJvDs7Iqv6pe1uXl0ewBHlBtwb64uNi4cB/hU83UfA4ys0OS4gCeDmHA39FT3N7UYo5mEc+i9aDW7z217yy6QhAMJ4KqgotwKHJ9yOSMN/4VwVuvrVkEVOSKf6WqI9/3pga6ku59ZXFWhU1y6/7pfl2dLnEkepta9pttDhvzqftpQsz7tvTRJf2R7v3zF1weZraPQHyU4mnpdBYdLZn5xRf5pwNDgud2dHehtaPNZzGZaVJSYs0d0y+v62nqXDHo2qzKvLw8tqhPcsrLy5XoDtdtlLEgUOIgfs1tpcrnTW7/2dBBETNlnUd2Nzk9ppjQGRBihLezq9TQNZ0QEEIgAApJljgXcJkVs0k2WcK7a1o+tIUHydRhdpk7XJUtdtYZOXKk6x8I0qsq+f83Agz07b8uQBL7j4W21J8Lkm22WEbpoEbFs1OtcHaGpw+bKhtKUpO/y56/b/fwT/I/H9rY0JhAhIjmhkEVxYTIiAh4vF50tLaCmRTnjo82vormtuOhMyas7csXiZpNmwItDscgB5cjSIDEPkS1mL9fF61abPdSnqQuI3TIZhlahdvU0WwIdCaphdBPBNgrOPQAIOAeTTbJksafoPp9bd7mPMybFC0pHUmEcIyZznEKknS7dH2FlzMms9ipfT9spe0DASTJ0qP+8w9DrEv8o+SvpQlxJAMaXAq1Fi4DcXEEmprYBaKsoKdJTQ2JsAYr1fiRo7W3ezuGK1f56fXXL8PqermslQQMlQWM7OjsgSbJhNlsRFRWNBQsW4MSJE+K9vLVhO4t2NVw9eoKpj014m7PNYQsOvtmob7b5HQHhwqJsZYEOK2/vHN/R1bbfYjKV+Zt7ykKd";
-  function apply() {
+  var SRC = "https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/256.avif";
+  var transparentUrl = null;
+
+  function stripWhite(img, cb) {
+    try {
+      var c = document.createElement("canvas");
+      c.width = img.naturalWidth || img.width;
+      c.height = img.naturalHeight || img.height;
+      var ctx = c.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      var data = ctx.getImageData(0, 0, c.width, c.height);
+      var d = data.data;
+      for (var i = 0; i < d.length; i += 4) {
+        var r = d[i], g = d[i + 1], b = d[i + 2];
+        // pure / near-white → transparent
+        if (r > 235 && g > 235 && b > 235) {
+          d[i + 3] = 0;
+        } else if (r > 210 && g > 210 && b > 210) {
+          var avg = (r + g + b) / 3;
+          d[i + 3] = Math.max(0, Math.min(255, Math.round((255 - avg) * 5)));
+        }
+      }
+      ctx.putImageData(data, 0, 0);
+      transparentUrl = c.toDataURL("image/png");
+      cb(transparentUrl);
+    } catch (e) {
+      cb(SRC); // fallback (CORS may block canvas on some hosts)
+    }
+  }
+
+  function applyUrl(url) {
     document.querySelectorAll("img.team-logo, img[alt*='Roughriders']").forEach(function (img) {
       if (img.closest(".hero-photo") || img.closest(".marvin-card") || img.closest(".staff-icon") || img.classList.contains("face")) return;
-      img.src = LOGO;
+      img.crossOrigin = "anonymous";
+      img.src = url;
       img.alt = "Alberta Roughriders";
       img.style.background = "transparent";
       img.style.backgroundColor = "transparent";
     });
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", apply);
-  else apply();
-  setTimeout(apply, 50);
-  setTimeout(apply, 300);
+
+  function run() {
+    if (transparentUrl) {
+      applyUrl(transparentUrl);
+      return;
+    }
+    var loader = new Image();
+    loader.crossOrigin = "anonymous";
+    loader.onload = function () {
+      stripWhite(loader, function (url) {
+        applyUrl(url);
+      });
+    };
+    loader.onerror = function () {
+      applyUrl(SRC);
+    };
+    loader.src = SRC;
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
+  else run();
+  setTimeout(run, 100);
+  setTimeout(run, 500);
 })();
