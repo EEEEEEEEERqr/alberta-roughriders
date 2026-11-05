@@ -37,6 +37,16 @@
     .card p:last-child{margin-bottom:0}
     .obit-link{color:var(--pink-soft);border-bottom:1px solid rgba(255,77,158,.4)}
     .obit-link:hover{color:#fff}
+    /* Marvin highlights */
+    .marvin-highlights{padding:2.5rem 0 1rem;border-bottom:1px solid var(--border)}
+    .hl-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:1.25rem;align-items:stretch}
+    .hl-card{background:#000;border:1px solid rgba(255,77,158,.3);border-radius:14px;overflow:hidden;box-shadow:0 0 28px rgba(255,77,158,.12)}
+    .hl-card video,.hl-card img{width:100%;display:block;background:#0a0a0a}
+    .hl-card video{aspect-ratio:16/9;object-fit:cover}
+    .hl-card img{aspect-ratio:4/3;object-fit:cover}
+    .hl-meta{padding:0.9rem 1.1rem;border-top:1px solid var(--border)}
+    .hl-meta h3{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.2rem}
+    .hl-meta p{font-size:.82rem;color:var(--muted)}
     footer{background:#000;color:var(--muted);padding:2.5rem 0 1.6rem;font-size:.84rem;border-top:1px solid var(--border)}
     .footer-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff}.footer-brand span{color:var(--pink)}
     #jumpscare{position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;overflow:hidden}
@@ -59,7 +69,7 @@
     #jumpscare.active .blood-splatter{opacity:1}
     #jumpscare .glitch{position:absolute;inset:0;z-index:7;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.15) 2px,rgba(0,0,0,.15) 4px);opacity:0}
     #jumpscare.hold .glitch{opacity:.7}
-    @media(max-width:768px){.nav-links{display:none}}
+    @media(max-width:800px){.nav-links{display:none}.hl-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -97,6 +107,34 @@
       <div class="mascot-badge">Official Mascot · Alberta Roughriders</div>
     </div>
   </section>
+
+  <!-- MARVIN HIGHLIGHTS -->
+  <section class="marvin-highlights">
+    <div class="container">
+      <div class="section-label" style="margin-bottom:1rem">Marvin Highlights</div>
+      <div class="hl-grid">
+        <div class="hl-card">
+          <video controls playsinline preload="metadata"
+            poster="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/Marvin%20the%20Roughriders%20Mascot%20on%20Ice.png"
+            src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/f6496571-4571-495f-b16a-9316f0cb4440.mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="hl-meta">
+            <h3>Marvin on the ice</h3>
+            <p>Roughriders mascot highlight reel</p>
+          </div>
+        </div>
+        <div class="hl-card">
+          <img src="https://raw.githubusercontent.com/EEEEEEEEERqr/alberta-roughriders/main/Marvin%20the%20Roughriders%20Mascot%20on%20Ice.png" alt="Marvin the Roughriders Mascot on Ice">
+          <div class="hl-meta">
+            <h3>Marvin the Roughriders Mascot on Ice</h3>
+            <p>Official mascot photo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="container">
       <div class="portrait-wrap">
